@@ -5,8 +5,9 @@ class CreateEvents < ActiveRecord::Migration
   		t.string   :title
   		t.string   :description
   		t.integer  :location_id
-  		t.integer  :pace       #integer for mile pace?
   		t.datetime :start_time
+      t.integer  :pace
+      t.string   :url_key
 
   		t.timestamps
   	end
