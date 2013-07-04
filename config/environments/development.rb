@@ -24,8 +24,8 @@ WhoRunIt::Application.configure do
   domain: "localhost",
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: 'whoruntest', #ENV["GMAIL_USERNAME"],
-  password: 'whorunit' #ENV["GMAIL_PASSWORD"]
+  user_name: ENV["GMAIL_USERNAME"],
+  password: ENV["GMAIL_PASSWORD"]
 }
 
   # Specify what domain to use for mailer URLs
