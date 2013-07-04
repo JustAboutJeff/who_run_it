@@ -1,0 +1,8 @@
+<fieldset>
+  <%= form_for @event do |f| %>
+    <%= f.text_field :title, placeholder: 'Title' %>
+    <%= f.text_field :description, placeholder: 'Description' %>
+    <%= text_field_tag :address, nil, placeholder: 'Address/Intersection' %>
+    <%= f.submit 'Create Run', class: 'button' %>
+  <% end %>
+</fieldset>
