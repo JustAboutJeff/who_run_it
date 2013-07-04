@@ -14,7 +14,7 @@ class EventsController < ApplicationController
                        location_id: location.id,
                        user_id: current_user.id)
     if @event.save
-      redirect_to events_path(@event)
+      redirect_to event_path(@event)
     else
       redirect_to "/profile"
     end

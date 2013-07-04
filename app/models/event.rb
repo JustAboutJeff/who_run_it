@@ -8,12 +8,12 @@ class Event < ActiveRecord::Base
 
   before_save :generate_url_key
 
+  def to_param
+  	url_key
+  end
+  
   private
   def generate_url_key
   	self.url_key = SecureRandom.urlsafe_base64(5)
-  end
-
-  def to_param
-  	url_key
   end
 end
