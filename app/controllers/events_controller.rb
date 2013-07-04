@@ -18,7 +18,7 @@ class EventsController < ApplicationController
       User.all.each do |user|
         NotificationMailer.notify(user,@event).deliver
       end
-      redirect_to events_path(@event)
+      redirect_to event_path(@event)
     else
       redirect_to "/profile"
     end
