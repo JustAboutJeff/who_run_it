@@ -111,6 +111,8 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    shoulda-callback-matchers (0.2.0)
+      activesupport (>= 3.0.0)
     shoulda-matchers (2.2.0)
       activesupport (>= 3.0.0)
     sprockets (2.2.2)
@@ -143,5 +145,6 @@ DEPENDENCIES
   rails (= 3.2.13)
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
+  shoulda-callback-matchers
   shoulda-matchers
   uglifier (>= 1.0.3)
