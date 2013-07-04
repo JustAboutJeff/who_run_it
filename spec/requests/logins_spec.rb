@@ -5,8 +5,8 @@ describe "login" do
     it "should display error with invalid password" do
       visit root_path
       click_button("Login")
-      fill_in("session[username]", with "niles")
-      fill_in("session[password]", with "badpassword")
+      fill_in("session[username]", with: "niles")
+      fill_in("session[password]", with: "badpassword")
       click_button("Login")
       expect(page).to have_content("Error - Invalid Password")
     end
@@ -14,8 +14,8 @@ describe "login" do
     it "should display error with invalid username" do
       visit root_path
       click_button("Login")
-      fill_in("session[username]", with "baduser")
-      fill_in("session[password]", with "password")
+      fill_in("session[username]", with: "baduser")
+      fill_in("session[password]", with: "password")
       click_button("Login")
       expect(page).to have_content("Error - Unknown User")
     end
