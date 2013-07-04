@@ -8,6 +8,7 @@ class Event < ActiveRecord::Base
 
   before_save :generate_url_key
 
+  private
   def generate_url_key
   	self.url_key = SecureRandom.urlsafe_base64(5)
   end
