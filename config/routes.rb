@@ -4,6 +4,8 @@ WhoRunIt::Application.routes.draw do
   
   # Users
   resources :users
+  # Events
+  resources :events
   # Sessions
   resources :sessions, only: [:new, :create, :destroy]
 
