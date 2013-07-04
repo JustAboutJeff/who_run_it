@@ -22,6 +22,22 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+#  gem 'better_errors'
+#  gem 'binding_of_caller'
+#  gem 'childprocess'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'shoulda-matchers'
+  gem 'shoulda-callback-matchers'
+#  gem 'database_cleaner'
+#  gem 'launchy'
+end
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
