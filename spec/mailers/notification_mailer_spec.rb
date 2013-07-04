@@ -1,17 +1,24 @@
 require "spec_helper"
 
+# TODO: Make these tests pass
 describe NotificationMailer do
   describe "notify" do
-    let(:mail) { NotificationMailer.notify }
+    before(:all) do
+      @event = FactoryGirl.create(:event)
+      @user = FactoryGirl.create(:user)
+    end
+
+    let(:mail) { NotificationMailer.notify( @user, @event )}
 
     it "renders the headers" do
-      mail.subject.should eq("Notify")
-      mail.to.should eq(["to@example.org"])
-      mail.from.should eq(["from@example.com"])
+      mail.subject.should eq("New Event Notification!")
+      mail.to.should eq([@user.email])
+      mail.from.should eq(["Notification@WhoRun.It"])
     end
 
     it "renders the body" do
-      mail.body.encoded.should match("Hi")
+      mail.body.encoded.should include("WhoRun.It")
+      mail.body.encoded.should include(@event.url_key)
     end
   end
 

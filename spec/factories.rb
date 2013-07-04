@@ -12,7 +12,7 @@ FactoryGirl.define do
     title "Lincoln Park Run"
     description "Easy run along lakeshore drive"
     location_id "1"
-    start_time "1300"
+    start_time "2013-07-04 17:08:23 -0500"
     pace "7"
     url_key "#"
   end
