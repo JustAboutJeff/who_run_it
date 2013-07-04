@@ -4,4 +4,11 @@ WhoRunIt::Application.routes.draw do
   
   # Users
   resources :users
+  # Sessions
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signup',  to: 'users#new'
+  match '/login',   to: 'sessions#new'
+  match '/profile', to: 'users#show'
+  match '/logout',  to: 'sessions#destroy'
 end
