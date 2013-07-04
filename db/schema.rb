@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(:version => 20130704001922) do
     t.string   "title"
     t.string   "description"
     t.integer  "location_id"
-    t.integer  "pace"
     t.datetime "start_time"
+    t.integer  "pace"
     t.string   "url_key"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
