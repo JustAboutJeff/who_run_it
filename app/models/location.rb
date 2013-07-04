@@ -6,4 +6,11 @@ class Location < ActiveRecord::Base
 
   validates_presence_of :latitude, :longitude
   validates_uniqueness_of :latitude, :scope => :longitude
+
+  before_save :round_values
+
+  def round_values
+  	self.latitude = self.latitude.round(6)
+  	self.longitude = self.longitude.round(6)
+  end
 end
