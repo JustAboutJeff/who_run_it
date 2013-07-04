@@ -13,3 +13,7 @@
  *= require foundation_and_overrides
  */
  
+#map-canvas {
+	height: 300px;
+	width: 550px;
+}
