@@ -14,5 +14,11 @@
 /log/*.log
 /tmp
 
+
+* Ignore all ruby-gemset and ruby-version
+/.ruby-gemset
+/.ruby-version
+
 # Ignore API key YAML
 /config/local_env.yml
+
