@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20130704001922) do
     t.string   "password_digest"
     t.string   "email"
     t.string   "cellphone"
+    t.string   "gravatar_hash"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
