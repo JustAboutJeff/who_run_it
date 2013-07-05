@@ -1,8 +1,13 @@
 <fieldset>
+  <h1>Create User</h1>
   <%= form_for @user do |f| %>
+    <%= label_tag :username %>
     <%= f.text_field :username, placeholder: 'Jane' %>
+    <%= label_tag :cellphone %>
     <%= f.telephone_field :cellphone, placeholder: '555-555-5555' %>
+    <%= label_tag :email %>
     <%= f.email_field :email, placeholder: 'JaneDoe@example.com' %>
+    <%= label_tag :password %>
     <%= f.password_field :password, placeholder: 'Password' %>
     <%= f.submit 'Sign Up', class: 'button' %>
   <% end %>

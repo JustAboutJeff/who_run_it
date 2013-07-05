@@ -1,3 +1,6 @@
-<p>Username: <%= @user.username %></p>
-<p>Email: <%= @user.email %></p>
-<p>Cellphone: <%= @user.cellphone %></p>
+<fieldset>
+  <p><img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=150&d=mm"></p>
+  <p>Username: <%= @user.username %></p>
+  <p>Email: <%= @user.email %></p>
+  <p>Cellphone: <%= @user.cellphone %></p>
+</fieldset>
