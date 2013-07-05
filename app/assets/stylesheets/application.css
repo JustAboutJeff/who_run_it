@@ -22,15 +22,30 @@ img.circle {
           border-radius: 500px;
 }
 
-#map-canvas {
-	height: 300px;
-	width: 550px;
-}
-
 h1,h2,h3,h4,h5,h6 {
   text-transform: uppercase;
 }
 
 fieldset {
   background-color: #E6EBEA;
+}
+
+#map {
+	height: 500px;
+	width: 100%;
+}
+
+.info.leaflet-control {
+  background-color: black;
+  opacity: 0.8;
+  padding: 8px;
+  border-radius: 3px;
+}
+
+.leaflet-control h4 {
+  margin: 0;
+}
+
+.leaflet-control span {
+  font-size: 1.4em;
 }
