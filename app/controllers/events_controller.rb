@@ -14,10 +14,9 @@ class EventsController < ApplicationController
                        location_id: location.id,
                        user_id: current_user.id)
     if @event.save
-      # TODO: fine tune this to send out notifications to users accept the requirements
-      User.all.each do |user|
-        NotificationMailer.notify(user,@event).deliver
-      end
+      puts "DEBUG #{@event.id}"
+      # TODO: send out notifications only to users that accept the settings
+      NotificationWorker.perform_async(@event.id)
       redirect_to event_path(@event)
     else
       redirect_to "/profile"
