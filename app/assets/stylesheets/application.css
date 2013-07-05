@@ -13,11 +13,6 @@
  *= require foundation_and_overrides
  */
 
-#map {
-	height: 500px;
-	width: 100%;
-}
-
 img.circle {
   margin-top: -0.25em;
   border: 0.17em solid #fff;
@@ -33,4 +28,24 @@ h1,h2,h3,h4,h5,h6 {
 
 fieldset {
   background-color: #E6EBEA;
+}
+
+#map {
+	height: 500px;
+	width: 100%;
+}
+
+.info.leaflet-control {
+  background-color: black;
+  opacity: 0.8;
+  padding: 8px;
+  border-radius: 3px;
+}
+
+.leaflet-control h4 {
+  margin: 0;
+}
+
+.leaflet-control span {
+  font-size: 1.4em;
 }
