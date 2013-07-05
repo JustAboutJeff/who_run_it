@@ -25,14 +25,13 @@
   </head>
 
   <body>
+    <%= render partial: 'layouts/navigation' %>
     <div class='row'>
       <div class='small-11 small-centered columns'>
-        <%= render partial: 'layouts/navigation' %>
         <%= yield %>
       </div>
     </div>
 
-    
     <%= javascript_include_tag "application" %>
   </body>
 </html>

@@ -12,8 +12,25 @@
  *= require_tree .
  *= require foundation_and_overrides
  */
- 
+
 #map {
 	height: 500px;
 	width: 100%;
+}
+
+img.circle {
+  margin-top: -0.25em;
+  border: 0.17em solid #fff;
+  vertical-align: middle;
+  -webkit-border-radius: 500px;
+     -moz-border-radius: 500px;
+          border-radius: 500px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  text-transform: uppercase;
+}
+
+fieldset {
+  background-color: #E6EBEA;
 }
