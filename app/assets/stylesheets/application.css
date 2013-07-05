@@ -12,7 +12,16 @@
  *= require_tree .
  *= require foundation_and_overrides
  */
- 
+
+img.circle {
+  margin-top: -0.25em;
+  border: 0.17em solid #fff;
+  vertical-align: middle;
+  -webkit-border-radius: 500px;
+     -moz-border-radius: 500px;
+          border-radius: 500px;
+}
+
 #map-canvas {
 	height: 300px;
 	width: 550px;
