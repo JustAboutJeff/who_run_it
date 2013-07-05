@@ -26,3 +26,11 @@ img.circle {
 	height: 300px;
 	width: 550px;
 }
+
+h1,h2,h3,h4,h5,h6 {
+  text-transform: uppercase;
+}
+
+fieldset {
+  background-color: #E6EBEA;
+}
