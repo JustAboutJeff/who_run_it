@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(:version => 20130706001559) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "location_settings", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "notification_frequency"
+    t.string   "notification_method"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
   create_table "notifications", :force => true do |t|
     t.integer "user_id"
     t.integer "event_id"
@@ -33,16 +44,6 @@ ActiveRecord::Schema.define(:version => 20130706001559) do
   create_table "routes", :force => true do |t|
     t.string "name"
     t.float  "distance"
-  end
-
-  create_table "settings", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "notification_frequency"
-    t.string   "notification_method"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
   end
 
   create_table "users", :force => true do |t|

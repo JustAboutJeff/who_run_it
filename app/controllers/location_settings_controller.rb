@@ -5,7 +5,8 @@ class LocationSettingsController < ApplicationController
   end
 
   def show
-    @location_settings = current_user.location_settings.find(params[:id])
+    @location_setting = current_user.location_settings.find(params[:id])
+    @coords = [@location_setting.latitude, @location_setting.longitude]
   end
 
   def new
