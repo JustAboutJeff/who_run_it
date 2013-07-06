@@ -1,4 +1,4 @@
-class Notification < ActiveRecord::Base
+class Waypoint < ActiveRecord::Base
   attr_accessible :route_id, :position, :latitude, :longitude
   
   belongs_to :route
