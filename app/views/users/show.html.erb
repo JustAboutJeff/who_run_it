@@ -3,4 +3,12 @@
   <p>Username: <%= @user.username %></p>
   <p>Email: <%= @user.email %></p>
   <p>Cellphone: <%= @user.cellphone %></p>
+  <% if !@location %>
+    <p>No locations available. <a href="#">Add a location</a></p>
+  <% else %>
+    <p>Locations:</p>
+      <% @location_settings.each do |location| %>
+    <p><%= location.id %></p>
+  <% end %>
+  <% end %>
 </fieldset>

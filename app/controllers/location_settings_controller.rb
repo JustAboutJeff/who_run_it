@@ -1,0 +1,3 @@
+class LocationSettingsController < ApplicationController
+
+end
