@@ -37,6 +37,5 @@ class EventsController < ApplicationController
     @event.waypoints.each do |waypoint|
       @waypoints << [waypoint.latitude, waypoint.longitude]
     end
-    @center_point = @event.route.center_point
   end
 end
