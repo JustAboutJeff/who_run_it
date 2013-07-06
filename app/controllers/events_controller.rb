@@ -4,11 +4,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    miles = (params[:distance].to_f*0.621371).round(2)
+    miles = (params[:distance].to_f*0.000621371).round(2)
 
     @route = Route.create(name: params[:event][:title], distance: miles)
 
-    @waypoints = params[:waypoints]split(",").each_slice(2).to_a
+    @waypoints = params[:waypoints].split(",").each_slice(2).to_a
     @waypoints.each_with_index do |waypoint, i|
       @route.waypoints << Waypoint.create(position: i, latitude: waypoint[0], longitude: waypoint[1])
     end

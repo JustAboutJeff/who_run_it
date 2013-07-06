@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :route
+  has_many   :waypoints, :through => :route
   has_many   :notifications
   has_many   :users, :through => :notifications
 
