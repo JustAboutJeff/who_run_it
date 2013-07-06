@@ -15,5 +15,6 @@ class UsersController < ApplicationController
 
   def show
   	@user = current_user
+    @location_settings = @user.location_settings.all
   end
 end
