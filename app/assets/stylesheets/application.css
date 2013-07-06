@@ -15,7 +15,7 @@
 
 img.circle {
   margin-top: -0.25em;
-  border: 0.17em solid #fff;
+  border: 0.17em solid #8CE83B;
   vertical-align: middle;
   -webkit-border-radius: 500px;
      -moz-border-radius: 500px;
@@ -29,6 +29,30 @@ h1,h2,h3,h4,h5,h6 {
 fieldset {
   background-color: #E6EBEA;
 }
+
+#event_pace {
+  width: 70px;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/*    SHOW EVENT PAGE     */
+
+#description {
+  margin-top: -32px;
+  font-size: 0.9em;
+}
+
+p.show-event {
+  margin: 0 0 5px 0;
+}
+
+table.show-event {
+  background-color: #E6EBEA;
+  font-size: 1.2em;
+}
+
+/*       END        */
 
 #map-create, #map-show {
 	height: 500px;
