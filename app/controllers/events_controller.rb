@@ -4,21 +4,21 @@ class EventsController < ApplicationController
   end
 
   def create
+    miles = (params[:distance].to_f*0.621371).round(2)
 
-    # TODO: SEE HOW THE FORM IS DELIVERING THE DATA AND MAKE THIS WORK!!!
-
-    # @route = Route.find_or_create_by_id(######)
+    @route = Route.create(name: params[:event][:title], distance: miles)
     
-    # "waypoints".each_with_index do |waypoint, i|
-    #   @route.waypoints << Waypoint.create(position: i, latitude: waypoint[0], longitude: waypoint[1])
-    # end
+    @waypoints = params[:waypoints]split(",").each_slice(2).to_a
+    @waypoints.each_with_index do |waypoint, i|
+      @route.waypoints << Waypoint.create(position: i, latitude: waypoint[0], longitude: waypoint[1])
+    end
 
-    # @event = Event.new(user_id: current_user.id,
-    #                    title: params[:event][:title],
-    #                    description: params[:event][:description],
-    #                    route_id: @route.id,
-    #                    start_time: (Time.now + 3600),
-    #                    pace: params[:event][:pace])
+    @event = Event.new(user_id: current_user.id,
+                       title: params[:event][:title],
+                       description: params[:event][:description],
+                       route_id: @route.id,
+                       start_time: (Time.now + 3600),
+                       pace: params[:event][:pace])
 
     if @event.save
       # TODO: send out notifications only to users that accept the settings
