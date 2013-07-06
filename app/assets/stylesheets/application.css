@@ -30,7 +30,7 @@ fieldset {
   background-color: #E6EBEA;
 }
 
-#map {
+#map-create, #map-show {
 	height: 500px;
 	width: 100%;
 }
