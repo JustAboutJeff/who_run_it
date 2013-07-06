@@ -1,10 +1,11 @@
-class CreateSettings < ActiveRecord::Migration
+class CreateLocationSettings < ActiveRecord::Migration
   def change
   	create_table :settings do |t|
   		t.integer :user_id
-  		t.integer :location_id
+  		t.string  :notification_frequency
   		t.string  :notification_method  #combo (none, phone, email, both)
-  		#frequency :frequency
+      t.float   :latitude
+      t.float   :longitude
 
   		t.timestamps
   	end
