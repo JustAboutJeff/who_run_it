@@ -8,7 +8,7 @@
     <%= label_tag :notification_method %>
     <%= f.select :notification_method, options_for_select([['None', 1],['Email',2],['Text Message',3],['Both',4]]) %>
     <%= label_tag :address %>
-    <%= text_field_tag placeholder: 'Address' %>
+    <%= text_field_tag :address, nil, placeholder: 'Address' %>
     <input type="hidden" value="<%= current_user.id %>" name="location_setting[user_id]" >
     <%= f.submit 'Add Setting', class: 'button' %>
   <% end %>
