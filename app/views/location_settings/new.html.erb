@@ -1,0 +1,15 @@
+<fieldset>
+  <h1>Create New Location Setting</h1>
+  <%= form_for @location_setting do |f| %>
+    <%= label_tag :name %>
+    <%= f.text_field :name, placeholder: 'Home' %>
+    <%= label_tag :notification_frequency %>
+    <%= f.select :notification_frequency, options_for_select([['Within 30 Minutes', 1], ['Within 1 Hour', 2], ['Within 2 Hours', 3]]) %>
+    <%= label_tag :notification_method %>
+    <%= f.select :notification_method, options_for_select([['None', 1],['Email',2],['Text Message',3],['Both',4]]) %>
+    <%= label_tag :address %>
+    <%= text_field_tag placeholder: 'Address' %>
+    <input type="hidden" value="<%= current_user.id %>" name="location_setting[user_id]" >
+    <%= f.submit 'Add Setting', class: 'button' %>
+  <% end %>
+</fieldset>
