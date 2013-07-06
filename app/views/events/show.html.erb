@@ -5,7 +5,10 @@
   <p>Start Time: <%= @event.start_time  %></p>
   <p>Location: <%= @event.waypoints.first.latitude %>, <%= @event.waypoints.first.longitude %></p>
 
-  <div id="map"></div>
-  <input type=hidden id="latitude" value="<%= @event.waypoints.first.latitude %>">
-  <input type=hidden id="longitude" value="<%= @event.waypoints.first.longitude %>">
+  <div id="map-show"></div>
 </fieldset>
+
+<script type="text/javascript">
+  var waypoints = <%= @waypoints %>;
+  var center_point = <%= @center_point %>;
+</script>

@@ -33,5 +33,10 @@ class EventsController < ApplicationController
     unless @event = Event.find_by_url_key(params[:id])
       redirect_to root_url
     end
+    @waypoints = []
+    @event.waypoints.each do |waypoint|
+      @waypoints << [waypoint.latitude, waypoint.longitude]
+    end
+    @center_point = @event.route.center_point
   end
 end
