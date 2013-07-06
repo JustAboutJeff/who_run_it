@@ -15,6 +15,9 @@ class LocationSettingsController < ApplicationController
 
   def create
     location_setting = LocationSetting.new(params[:location_setting])
+    coords = Geocoder.coordinates(params[:address])
+    location_setting.update_attributes(latitude: coords[0],
+                                       longitude: coords[1])
     if location_setting.save
       redirect_to '/profile'
     else
