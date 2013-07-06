@@ -1,4 +1,4 @@
-class Notification < ActiveRecord::Base
+class Route < ActiveRecord::Base
   attr_accessible :name, :distance
   
   has_many :events
