@@ -1,10 +1,27 @@
 <fieldset>
   <h1><%= @event.title %></h1>
-  <p>Creator: <%= @event.user.username %></p>
-  <p>Description: <%= @event.description %></p>
-  <p>Start Time: <%= @event.start_time  %></p>
-  <p>Location: <%= @event.waypoints.first.latitude %>, <%= @event.waypoints.first.longitude %></p>
-
+  <% if @event.description != "" %>
+    <p id='description'><%= @event.description %></p>
+  <% end %>
+  <p>Organizer: <b><%= @event.user.username %></b> <span><img class='circle' src="http://www.gravatar.com/avatar/<%= @event.user.gravatar_hash %>?s=30&d=mm"></span></p>
+  <table class='show-event'>
+    <tr>
+      <td>When</td>
+      <td><b><%= @event.start_time.strftime("%I:%M%p on %m/%d/%Y") %></b></td>
+    </tr>
+    <tr>
+      <td>Distance</td>
+      <td><b><%= @event.route.distance %> miles</b></td>
+    </tr>
+    <tr>
+      <td>Pace</td>
+      <td><b><%= @event.pace %>:00/mile</b></td>
+    </tr>
+    <tr>
+      <td>Total Time</td>
+      <td><b><%= (@event.route.distance * @event.pace).round(0) %> minutes</b></td>
+    </tr>
+  </table>
   <div id="map-show"></div>
 </fieldset>
 
