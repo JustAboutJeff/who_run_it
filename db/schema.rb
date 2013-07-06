@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704001922) do
+ActiveRecord::Schema.define(:version => 20130706001559) do
 
   create_table "events", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
     t.string   "description"
-    t.integer  "location_id"
+    t.integer  "route_id"
     t.datetime "start_time"
     t.integer  "pace"
     t.string   "url_key"
@@ -25,19 +25,24 @@ ActiveRecord::Schema.define(:version => 20130704001922) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "locations", :force => true do |t|
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "notifications", :force => true do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+  end
+
+  create_table "routes", :force => true do |t|
+    t.string "name"
+    t.float  "distance"
   end
 
   create_table "settings", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "location_id"
+    t.string   "notification_frequency"
     t.string   "notification_method"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -48,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20130704001922) do
     t.string   "gravatar_hash"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "waypoints", :force => true do |t|
+    t.integer "route_id"
+    t.integer "position"
+    t.float   "latitude"
+    t.float   "longitude"
   end
 
 end

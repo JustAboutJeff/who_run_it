@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   attr_accessible :username, :password, :email, :cellphone
 
   has_many :events
-  has_many :settings, :dependent => :destroy
-  has_many :locations, :through => :settings
+  has_many :routes, :through => :events
+  has_many :location_settings
+  has_many :notifications
 
   has_secure_password
 
@@ -21,5 +22,4 @@ class User < ActiveRecord::Base
   def get_gravatar_hash
     self.gravatar_hash = Digest::MD5.hexdigest( self.email.strip.downcase )
   end
-
 end
