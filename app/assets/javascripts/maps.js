@@ -1,116 +1,59 @@
 $(document).ready(function() {
 
   var routeLayer = L.layerGroup();
-  var map = L.mapbox.map('map', 'mthoover1.map-nnfbdcbz', { layers: routeLayer })
-  .setView([41.889451, -87.637145], 15);
-
-  // var geolocate = document.getElementById('geolocate');
-
-  // // This uses the HTML5 geolocation API, which is available on
-  // // most mobile browsers and modern browsers, but not in Internet Explorer
-  // //
-  // // See this chart of compatibility for details:
-  // // http://caniuse.com/#feat=geolocation
-  // if (!navigator.geolocation) {
-  //     geolocate.innerHTML = 'geolocation is not available';
-  // } else {
-  //     geolocate.onclick = function (e) {
-  //         e.preventDefault();
-  //         e.stopPropagation();
-  //         map.locate();
-  //     };
-  // }
-
-  // // Once we've got a position, zoom and center the map
-  // // on it, and add a single marker.
-  // map.on('locationfound', function(e) {
-  //     map.fitBounds(e.bounds);
-
-  //     map.markerLayer.setGeoJSON({
-  //         type: "Feature",
-  //         geometry: {
-  //             type: "Point",
-  //             coordinates: [e.latlng.lng, e.latlng.lat]
-  //         },
-  //         properties: {
-  //             'marker-color': '#000',
-  //             'marker-symbol': 'star-stroked'
-  //         }
-  //     });
-
-  //     // And hide the geolocation button
-  //     geolocate.parentNode.removeChild(geolocate);
-  // });
-
-  // // If the user chooses not to allow their location
-  // // to be shared, display an error message.
-  // map.on('locationerror', function() {
-  //     geolocate.innerHTML = 'position could not be found';
-  // });
+  var map = L.mapbox.map('map', 'mthoover1.map-nnfbdcbz', {layers: routeLayer})
+  map.locate({setView: true, maxZoom: 16});
 
   var waypoints = [];
-  var info = L.control();
 
-  info.onAdd = function(map) {
-    this._div = L.DomUtil.create('div', 'info');
-    this.update();
-    return this._div;
-  }
+  var drawnItems = new L.FeatureGroup();
+  map.addLayer(drawnItems);
 
-  info.update = function(distance) {
-    this._div.innerHTML = '<h4>Total Distance</h4>' + (distance ? '<span>' + distance.toFixed(2) + ' miles</span>': '<span>Create a route</span>');
-  }
+  var drawControl = new L.Control.Draw({
 
-  info.addTo(map);
+    draw: {
+      position: 'topleft',
+      polyline: {
+        shapeOptions: {
+        color: "#2c3e59",
+        weight: 8,
+        opacity: 0.8
+        }
+      },
+      polygon: false,
+      rectangle: false,
+      circle: false
+    },
 
-  var reset = L.control();
+    edit: {
+      featureGroup: drawnItems,
+      edit: false
+    }
+  });
 
-  reset.onAdd = function(map) {
-    this._div = L.DomUtil.create('div', 'reset');
-    this._div.innerHTML = '<button type="button" id="reset">Reset Route</button>';
-    this.update();
-    return this._div;
-  }
+  map.addControl(drawControl);
 
-  reset.update = function() {
-    waypoints = [];
-    info.update();
-  }
+  map.on('draw:created', function(e) {
+    var type = e.layerType
+        layer = e.layer;
 
-  reset.addTo(map);
+    if (type === 'polyline') {
 
+      waypoints = [];
+      for (i=0; i < (e.layer._latlngs.length); i++) {
+        waypoints.push([e.layer._latlngs[i].lat, e.layer._latlngs[i].lng])
+      }
 
-  map.on('click', function(e) { 
-    L.marker(e.latlng).addTo(routeLayer);
-    waypoints.push(e.latlng);
-    if (waypoints.length > 1) {
-      L.polyline(waypoints).addTo(routeLayer);
       var totalDistance = 0;
       for (i = 0; i < (waypoints.length - 1); i++) {
-        totalDistance += waypoints[i].distanceTo(waypoints[i+1]);
+        totalDistance += e.layer._latlngs[i].distanceTo(e.layer._latlngs[i+1]);
       }
-      info.update(totalDistance*0.000621371);
     }
-    console.log(waypoints);
-  });
 
+    $('#waypoints').val(waypoints);
+    $('#distance').val(totalDistance);
 
-  $('#map').on('click', '#reset', function(e) {
-    e.stopPropagation();
-    e.preventDefault();
-    routeLayer.clearLayers();
-    reset.update();
-  });
-
-  $('form').submit(function(event) {
-    event.preventDefault;
-    event.stopPropagation;
-    convertedWaypoints = []
-    for (i = 0; i < waypoints.length; i++) {
-      convertedWaypoints.push([waypoints[i].lat, waypoints[i].lng])
-    }
-    console.log(convertedWaypoints);
-    return false;
+    drawnItems.addLayer(layer);
   });
 
 });

@@ -14,6 +14,7 @@ class EventsController < ApplicationController
                        location_id: location.id,
                        user_id: current_user.id)
     if @event.save
+      p params
       puts "DEBUG #{@event.id}"
       # TODO: send out notifications only to users that accept the settings
       NotificationWorker.perform_async(@event.id)
