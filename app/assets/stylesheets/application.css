@@ -47,7 +47,7 @@ p.show-event {
   margin: 0 0 5px 0;
 }
 
-table.show-event {
+table.show-event, table.show-location {
   background-color: #E6EBEA;
   font-size: 1.2em;
 }
@@ -57,6 +57,11 @@ table.show-event {
 #map-create, #map-show {
 	height: 500px;
 	width: 100%;
+}
+
+#map-location {
+  height: 300px;
+  width: 100%;
 }
 
 .info.leaflet-control {

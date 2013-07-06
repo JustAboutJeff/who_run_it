@@ -1,0 +1,19 @@
+<fieldset>
+  <h2><%= @location_setting.name %></h2>
+
+  <table class='show-location'>
+    <tr>
+      <td>Open Times:</td>
+      <td><%= @location_setting.notification_frequency %></td>
+    </tr>
+    <tr>
+      <td>Notification Method:</td>
+      <td><%= @location_setting.notification_method %></td>
+    </tr>
+  </table>
+  <div id="map-location"></div>
+</fieldset>
+
+<script type="text/javascript">
+  var coords = <%= @coords %>;
+</script>
