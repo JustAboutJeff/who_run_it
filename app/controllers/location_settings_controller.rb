@@ -9,11 +9,11 @@ class LocationSettingsController < ApplicationController
   end
 
   def new
-    @location_setting = Location_Setting.new
+    @location_setting = LocationSetting.new
   end
 
   def create
-    location_setting = Location_Setting.new(params[:location_setting])
+    location_setting = LocationSetting.new(params[:location_setting])
     if location_setting.save
       redirect_to '/profile'
     else

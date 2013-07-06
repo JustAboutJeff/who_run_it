@@ -4,7 +4,7 @@
   <p>Email: <%= @user.email %></p>
   <p>Cellphone: <%= @user.cellphone %></p>
   <% if !@location %>
-    <p>No locations available. <a href="#">Add a location</a></p>
+    <p>No locations available. <%= link_to "Add a location", new_location_setting_path %></p>
   <% else %>
     <p>Locations:</p>
       <% @location_settings.each do |location| %>
