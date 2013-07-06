@@ -3,9 +3,9 @@
   <p>Creator: <%= @event.user.username %></p>
   <p>Description: <%= @event.description %></p>
   <p>Start Time: <%= @event.start_time  %></p>
-  <p>Location: <%= @event.location.latitude %>, <%= @event.location.longitude %></p>
+  <p>Location: <%= @event.waypoints.first.latitude %>, <%= @event.waypoints.first.longitude %></p>
 
-  <div id="map-canvas"></div>
-  <input type=hidden id="latitude" value="<%= @event.location.latitude %>">
-  <input type=hidden id="longitude" value="<%= @event.location.longitude %>">
+  <div id="map"></div>
+  <input type=hidden id="latitude" value="<%= @event.waypoints.first.latitude %>">
+  <input type=hidden id="longitude" value="<%= @event.waypoints.first.longitude %>">
 </fieldset>
