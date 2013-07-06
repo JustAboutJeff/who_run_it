@@ -4,18 +4,23 @@ class EventsController < ApplicationController
   end
 
   def create
-    coords = Geocoder.coordinates(params[:address])
-    location = Location.create(latitude: coords[0],
-                               longitude: coords[1])
 
-    @event = Event.new(title: params[:event][:title],
-                       description: params[:event][:description],
-                       start_time: (Time.now + 3600),
-                       location_id: location.id,
-                       user_id: current_user.id)
+    # TODO: SEE HOW THE FORM IS DELIVERING THE DATA AND MAKE THIS WORK!!!
+
+    # @route = Route.find_or_create_by_id(######)
+
+    # "waypoints".each_with_index do |waypoint, i|
+    #   @route.waypoints << Waypoint.create(position: i, latitude: waypoint[0], longitude: waypoint[1])
+    # end
+
+    # @event = Event.new(user_id: current_user.id,
+    #                    title: params[:event][:title],
+    #                    description: params[:event][:description],
+    #                    route_id: @route.id,
+    #                    start_time: (Time.now + 3600),
+    #                    pace: params[:event][:pace])
+
     if @event.save
-      p params
-      puts "DEBUG #{@event.id}"
       # TODO: send out notifications only to users that accept the settings
       NotificationWorker.perform_async(@event.id)
       redirect_to event_path(@event)
