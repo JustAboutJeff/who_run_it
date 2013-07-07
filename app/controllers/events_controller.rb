@@ -13,11 +13,13 @@ class EventsController < ApplicationController
       @route.waypoints << Waypoint.create(position: i, latitude: waypoint[0], longitude: waypoint[1])
     end
 
+    time = Event.generate_time(params[:hour], params[:minute], params[:ampm])
+
     @event = Event.new(user_id: current_user.id,
                        title: params[:event][:title],
                        description: params[:event][:description],
                        route_id: @route.id,
-                       start_time: (Time.now + 3600),
+                       start_time: time,
                        pace: params[:event][:pace])
 
     if @event.save
