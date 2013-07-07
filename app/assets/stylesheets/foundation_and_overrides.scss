@@ -15,8 +15,8 @@
 // $em-base: 16px;
 
 // We use these to control various global styles
-// $body-bg: #fff;
-// $body-font-color: #222;
+$body-bg: #2C3E59;
+$body-font-color: #06142B;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -28,7 +28,7 @@
 // $text-direction: ltr;
 
 // We use these as default colors throughout
-// $primary-color: #2ba6cb;
+$primary-color: #A7ED69;
 // $secondary-color: #e9e9e9;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
@@ -85,6 +85,10 @@
 //
 
 // We use these to control header font styles
+$header-font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-weight: 900;
+$header-font-style: italic;
+$header-font-color: #06142B;
 // $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $header-font-weight: bold;
 // $header-font-style: normal;
@@ -968,6 +972,7 @@
 //
 
 // Background color for the top bar
+$topbar-bg: #06142B;
 // $topbar-bg: #111;
 
 // Height and margin
