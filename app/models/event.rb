@@ -22,9 +22,9 @@ class Event < ActiveRecord::Base
     if hour > time.hour
       Time.parse("#{hour}:#{minute}:00")
     elsif (hour == time.hour) && (minute > time.min)
-      Time.parse("#{time.year}-#{time.month}-#{time.day} #{hour}:#{minute}:00")
+      Time.parse("#{hour}:#{minute}:00")
     else
-      #return timestamp for tomorrow
+      Time.parse("#{time.year}-#{time.month}-#{time.day+1} #{hour}:#{minute}:00")
     end
   end
 

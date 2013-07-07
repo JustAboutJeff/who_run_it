@@ -30,18 +30,21 @@ fieldset {
   background-color: #E6EBEA;
 }
 
-#event_pace {
+
+#event_pace, #hour, #minute, #ampm {
   width: 70px;
-  font-size: 18px;
-  margin-bottom: 30px;
+  font-size: 1.05em;
+  margin-bottom: 10px;
+  border-radius: 0px;
 }
 
-#hour, #minute, #ampm {
-   width: 55px;
-  font-size: 18px;
-  margin-bottom: 30px;
+#ampm {
+  width: 100px;
 }
 
+#event_pace {
+  margin-bottom: 30px;
+}
 /*    SHOW EVENT PAGE     */
 
 #description {
