@@ -11,6 +11,23 @@ class Event < ActiveRecord::Base
 
   before_save :generate_url_key
 
+  def self.generate_time(hr, min, ampm)
+    time = Time.now
+    hour = hr.to_i
+    minute = min.to_i
+    if (ampm == "PM") && (hour != 12)
+      hour += 12
+    end
+    p hour
+    if hour > time.hour
+      Time.parse("#{hour}:#{minute}:00")
+    elsif (hour == time.hour) && (minute > time.min)
+      Time.parse("#{time.year}-#{time.month}-#{time.day} #{hour}:#{minute}:00")
+    else
+      #return timestamp for tomorrow
+    end
+  end
+
   def to_param
   	url_key
   end
