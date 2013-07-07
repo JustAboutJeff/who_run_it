@@ -2,9 +2,10 @@
   <h1>Create Run</h1>
   <%= form_for @event do |f| %>
     <%= label_tag :title %>
-    <%= f.text_field :title, placeholder: 'Title' %>
+    <%= f.text_field :title, placeholder: 'Title', autofocus: true %>
     <%= label_tag :description %>
     <%= f.text_field :description, placeholder: 'Description' %>
+    <%= f.time_select :start_time, prefix: "crazy" %>
     <%= label_tag :pace %>
     <%= f.select :pace, options_for_select([5,6,7,8,9,10,11,12]) %><br>
     <%= f.submit 'Create Run', class: 'button' %>

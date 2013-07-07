@@ -36,6 +36,12 @@ fieldset {
   margin-bottom: 30px;
 }
 
+#hour, #minute, #ampm {
+   width: 55px;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
 /*    SHOW EVENT PAGE     */
 
 #description {
