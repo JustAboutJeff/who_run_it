@@ -7,7 +7,7 @@
   <table class='show-event'>
     <tr>
       <td>When</td>
-      <td><b><%= @event.start_time.strftime("%I:%M%p on %m/%d/%Y") %></b></td>
+      <td><b><%= @event.start_time.localtime.strftime("%I:%M%p on %m/%d/%Y") %></b></td>
     </tr>
     <tr>
       <td>Distance</td>
