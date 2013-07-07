@@ -13,7 +13,14 @@ $(document).ready(function() {
       animatedWaypoints.push(waypoints[i]);
     }
 
-    var line = L.polyline(animatedWaypoints), animatedMarker = L.animatedMarker(line.getLatLngs());
+    var line = L.polyline(animatedWaypoints);
+    var animatedMarker = L.animatedMarker(line.getLatLngs());
+
+    // var animatedMarker = L.animatedMarker(line.getLatLngs(), {
+    //   distance: 2000,
+    //   interval: 2000
+    // });
+    
     mapShow.addLayer(animatedMarker);
   }
 });
