@@ -8,7 +8,7 @@
   <% else %>
     <p>Locations:</p>
     <% @location_settings.each do |location| %>
-      <p><%= link_to location.name, location_setting_path(location) %>&nbsp;<%= link_to "Edit", edit_location_setting_path(location), class: 'button secondary tiny' %><%= link_to 'Delete', location, method: :delete, class: 'button tiny alert' %></p><br>
+      <p><%= link_to location.name, location_setting_path(location) %><%= link_to "Edit", edit_location_setting_path(location), class: 'button secondary tiny' %><%= link_to 'Delete', location, method: :delete, class: 'button tiny alert' %></p>
     <% end %>
     <%= link_to "Add a location", new_location_setting_path %>
   <% end %>
