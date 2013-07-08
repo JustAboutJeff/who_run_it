@@ -3,7 +3,7 @@
   <p>Username: <%= @user.username %></p>
   <p>Email: <%= @user.email %></p>
   <p>Cellphone: <%= @user.cellphone %></p>
-  <% if !@location_settings %>
+  <% unless @location_settings %>
     <p>No locations available. <%= link_to "Add a location", new_location_setting_path %></p>
   <% else %>
     <p>Locations:</p>

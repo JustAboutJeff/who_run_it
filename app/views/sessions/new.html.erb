@@ -1,6 +1,6 @@
 <fieldset>
   <h1>Login</h1>
-	<%= form_for(:session, url: sessions_path) do |f| %>
+	<%= form_for :session do |f| %>
     <%= label_tag :username %>
 	  <%= f.text_field :username, placeholder: 'Username' %>
     <%= label_tag :password %>

@@ -3,7 +3,7 @@
     <ul class="title-area">
       <!-- Title Area -->
       <li class="name">
-        <h1><%= link_to 'who run it', new_event_path %></h1>
+        <h1><%= link_to 'who run it', root_path %></h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
     </ul>
@@ -12,8 +12,8 @@
       <!-- Right Nav Section -->
       <ul class="right">
         <% if current_user %>
-        <li><a href="/profile"><%= current_user.username %>&nbsp;<img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=30&d=mm"></a></li>
-        <li><%= link_to 'Create Event', new_event_path %></li>
+        <li><a href="<%= profile_path(current_user) %>"><%= current_user.username %>&nbsp;<img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=30&d=mm"></a></li>
+        <li><%= link_to 'Create Event', root_path %></li>
         <li><%= link_to 'Logout', logout_path, method: :delete %></li>
         <% else %>
         <li><%= link_to 'Login', login_path %></li>

@@ -1,18 +1,21 @@
 WhoRunIt::Application.routes.draw do
-  # Root
-  root to: 'users#new'
 
-  # Users
-  resources :users
+  # Sessions
+  get    '/login',  to: 'sessions#new'
+  post   '/login',  to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+  # Root
+  root to: 'events#new'
+
   # Events
   resources :events
-  # Sessions
-  resources :sessions, only: [:new, :create, :destroy]
-  # Location Settings
-  resources :location_settings
 
-  match '/signup',  to: 'users#new'
-  match '/login',   to: 'sessions#new'
-  match '/profile', to: 'users#show'
-  match '/logout',  to: 'sessions#destroy'
+  # Users
+  get  '/users/:id', to: 'users#show', as: '/profile'
+  get  '/users',     to: 'users#new'
+  post '/users',     to: 'users#create'
+
+  # LocationSettings
+  resources :location_settings
 end

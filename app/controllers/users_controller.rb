@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
+
+  # GET /users
   def new
     @user = User.new
   end
 
+  # POST /users
   def create
     user = User.new(params[:user])
     if user.save
@@ -13,6 +16,7 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/:id
   def show
   	@user = current_user
     @location_settings = @user.location_settings.all
