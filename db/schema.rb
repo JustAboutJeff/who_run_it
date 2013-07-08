@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130706001559) do
+ActiveRecord::Schema.define(:version => 20130708140403) do
 
   create_table "events", :force => true do |t|
     t.integer  "user_id"
@@ -30,14 +30,14 @@ ActiveRecord::Schema.define(:version => 20130706001559) do
     t.string   "name"
     t.string   "notification_frequency"
     t.string   "notification_method"
-    t.integer  "pace_min"
-    t.integer  "pace_max"
-    t.integer  "distance_min"
-    t.integer  "distance_max"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
+    t.integer  "pace_min"
+    t.integer  "pace_max"
+    t.integer  "distance_min"
+    t.integer  "distance_max"
   end
 
   create_table "notifications", :force => true do |t|
