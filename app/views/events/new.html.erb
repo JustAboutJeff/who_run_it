@@ -11,14 +11,15 @@
     <%= select_tag :ampm, options_for_select([["am/pm", nil], "AM","PM"]) %>
     <%= label_tag :pace %>
     <%= f.select :pace, options_for_select([5,6,7,8,9,10,11,12]) %>
-    <% if current_user.routes.count > 0 %>
+    <% if current_user.routes.any? %>
       <%= label_tag :route %>
       <%= select_tag :route, options_from_collection_for_select(current_user.routes, 'id', 'name', 0) %>
     <% end %>
-    <br><br>
-    <%= f.submit 'Create Run', class: 'button' %>
-    <%= hidden_field_tag :waypoints %>
-    <%= hidden_field_tag :distance %>
+    <p>
+      <%= f.submit 'Create Run', class: 'button' %>
+      <%= hidden_field_tag :waypoints %>
+      <%= hidden_field_tag :distance %>
+    </p>
   <% end %>
   
   <div id="map-create"></div>
