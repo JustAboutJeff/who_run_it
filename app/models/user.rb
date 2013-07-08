@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :password, :email, :cellphone
 
   has_many :events
-  has_many :routes, :through => :events
+  has_many :routes, :through => :events, :uniq => true
   has_many :location_settings
   has_many :notifications
 
