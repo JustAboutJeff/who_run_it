@@ -21,7 +21,6 @@ class NotificationWorker
 
           if (location.notification_method == "3") || (location.notification_method == "4")
             break if sent_text == true
-            puts "-------- sending text to #{user.username}"
             my_sms_engine = SmsEngine.new(user, event)
             my_sms_engine.send_sms
             sent_text = true
