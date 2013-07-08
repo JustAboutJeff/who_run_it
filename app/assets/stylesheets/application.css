@@ -31,7 +31,7 @@ fieldset {
 }
 
 
-#event_pace, #hour, #minute, #ampm {
+#event_pace, #hour, #minute, #ampm, #route {
   width: 70px;
   font-size: 1.05em;
   margin-bottom: 10px;
@@ -42,9 +42,10 @@ fieldset {
   width: 100px;
 }
 
-#event_pace {
-  margin-bottom: 30px;
+#route {
+  width: auto;
 }
+
 /*    SHOW EVENT PAGE     */
 
 #description {
