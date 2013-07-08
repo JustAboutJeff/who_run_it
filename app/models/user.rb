@@ -16,10 +16,18 @@ class User < ActiveRecord::Base
   validates_length_of :password, minimum: 4
 
   before_save :get_gravatar_hash
+  before_save :format_phone_number
 
   private
 
   def get_gravatar_hash
     self.gravatar_hash = Digest::MD5.hexdigest( self.email.strip.downcase )
+  end
+
+  def format_phone_number
+    if self.cellphone != nil
+      digits = self.cellphone.gsub(/[^\d]/, '')
+      self.cellphone = "1" + digits[-10..-1]
+    end
   end
 end

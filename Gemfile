@@ -10,6 +10,8 @@ gem 'pg'
 
 gem 'geocoder'
 
+gem 'twilio-ruby'
+
 gem 'sidekiq'
 
 # Gems used only for assets and not required
