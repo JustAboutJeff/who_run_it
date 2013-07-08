@@ -39,6 +39,13 @@ $(document).ready(function() {
     $('#distance').val("");
   });
 
+  $('#reset').on('click', function() {
+    waypoints = [];
+    map.removeLayer(layer);
+    $('#waypoints').val("");
+    $('#distance').val("");
+  });
+
   map.addControl(drawControl);
   $('.leaflet-draw-section:last').remove();
 
@@ -65,5 +72,4 @@ $(document).ready(function() {
     drawnItems.addLayer(layer);
   });
   }
-
 });
