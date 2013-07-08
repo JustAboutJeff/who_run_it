@@ -8,6 +8,8 @@ class Event < ActiveRecord::Base
   has_many   :users, :through => :notifications
 
   validates_presence_of :user_id, :title, :route_id, :start_time, :pace
+  validates_length_of   :title, maximum: 30
+  validates_length_of   :description, maximum: 100
 
   before_save :generate_url_key
 

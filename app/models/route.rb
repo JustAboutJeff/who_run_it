@@ -4,5 +4,6 @@ class Route < ActiveRecord::Base
   has_many :events
   has_many :waypoints
 
-  # validates_presence_of
+  validates_presence_of :name, :distance
+  validates_length_of   :name, maximum: 30
 end
