@@ -28,11 +28,18 @@ $(document).ready(function() {
 
     edit: {
       featureGroup: drawnItems,
-      edit: false
-    }
+      edit: false    }
+  });
+
+  $('#reset').on('click', function() {
+    waypoints = [];
+    map.removeLayer(layer);
+    $('#waypoints').val("");
+    $('#distance').val("");
   });
 
   map.addControl(drawControl);
+  $('.leaflet-draw-section:last').remove();
 
   map.on('draw:created', function(e) {
     var type = e.layerType
