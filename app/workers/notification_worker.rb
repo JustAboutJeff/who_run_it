@@ -31,6 +31,7 @@ class NotificationWorker
           end
         end
       end
+      Notification.create(user_id: user.id, event_id: event.id) if ((sent_email == true) || (sent_text == true))
     end
   end
 end
