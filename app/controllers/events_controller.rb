@@ -1,8 +1,12 @@
 class EventsController < ApplicationController
+
+  # ROOT
+  # GET /
   def new
     @event = Event.new
   end
 
+  # POST /events
   def create
     miles = (params[:distance].to_f*0.000621371).round(2)
 
@@ -34,6 +38,7 @@ class EventsController < ApplicationController
     end
   end
 
+  # GET /events/:id
   def show
     unless @event = Event.find_by_url_key(params[:id])
       redirect_to root_url

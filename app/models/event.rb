@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   attr_accessible :user_id, :title, :description, :route_id, :start_time, :pace, :url_key
-  
+
   belongs_to :user
   belongs_to :route
   has_many   :waypoints, :through => :route
@@ -31,7 +31,7 @@ class Event < ActiveRecord::Base
   def to_param
   	url_key
   end
-  
+
   private
   def generate_url_key
   	self.url_key = SecureRandom.urlsafe_base64(5)
