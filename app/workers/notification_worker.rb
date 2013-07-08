@@ -2,7 +2,8 @@ class NotificationWorker
   include Sidekiq::Worker
   sidekiq_options retry: false
 
-  def perform(event_id)    event = Event.find(event_id)
+  def perform(event_id)    
+    event = Event.find(event_id)
     event_coords = [event.waypoints.first.latitude, event.waypoints.first.longitude]
 
     User.all.each do |user|
