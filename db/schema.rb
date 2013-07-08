@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(:version => 20130706001559) do
     t.string   "name"
     t.string   "notification_frequency"
     t.string   "notification_method"
+    t.integer  "pace_min"
+    t.integer  "pace_max"
+    t.integer  "distance_min"
+    t.integer  "distance_max"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at",             :null => false
