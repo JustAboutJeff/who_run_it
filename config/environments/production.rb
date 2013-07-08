@@ -30,6 +30,8 @@ WhoRunIt::Application.configure do
     :enable_starttls_auto => true
     }
 
+  config.action_mailer.default_url_options = { :host => "whorunit.herokuapp.com" }
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
