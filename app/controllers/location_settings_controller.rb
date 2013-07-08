@@ -25,4 +25,19 @@ class LocationSettingsController < ApplicationController
     end
   end
 
+  def destroy
+    location_settings = LocationSettings.find(params[:id])
+    location_settings.destroy
+    redirect_to '/profile'
+  end
+
+  def edit
+    location_setting = LocationSetting.find(params[:id])
+    if location_setting.update_attributes(params[:location_settings])
+      redirect_to /profile
+    else
+      render :edit
+    end
+  end
+
 end
