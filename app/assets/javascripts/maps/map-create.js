@@ -28,15 +28,8 @@ $(document).ready(function() {
 
     edit: {
       featureGroup: drawnItems,
-      edit: false    
+      edit: false
     }
-  });
-
-  $('#reset').on('click', function() {
-    waypoints = [];
-    map.removeLayer(layer);
-    $('#waypoints').val("");
-    $('#distance').val("");
   });
 
   $('#reset').on('click', function() {
