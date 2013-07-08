@@ -29,4 +29,33 @@ class LocationSettingsController < ApplicationController
     end
   end
 
+  #DELETE /location_settings/:id
+  def destroy
+    location_settings = LocationSetting.find(params[:id])
+    location_settings.destroy
+    redirect_to '/profile'
+  end
+
+  #GET /location_settings/:id
+  def edit
+    @location_setting = LocationSetting.find(params[:id])
+  end
+
+  #PUT /location_settings/:id
+  def update
+    puts "#{params}"
+    @location_setting = LocationSetting.find(params[:id])
+
+    if (params[:address] != "")
+      coords = Geocoder.coordinates(params[:address])
+      @location_setting.update_attributes(latitude: coords[0],
+                                          longitude: coords[1])
+    end
+
+    if @location_setting.update_attributes(params[:location_setting])
+      redirect_to '/profile'
+    else
+      render :edit
+    end
+  end
 end
