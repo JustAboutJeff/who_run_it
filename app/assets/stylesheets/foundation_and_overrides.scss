@@ -1,6 +1,7 @@
 // Required global settings and mixins for Foundation
 @import "foundation/foundation-global";
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900italic);
+
 // Settings file to override Foundation variables
 
 // You can find the variables for each component at the bottom of their
@@ -17,7 +18,7 @@
 // We use these to control various global styles
 $body-bg: #2C3E59;
 $body-font-color: #06142B;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -89,10 +90,6 @@ $header-font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", Helvetica
 $header-font-weight: 900;
 $header-font-style: italic;
 $header-font-color: #06142B;
-// $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $header-font-weight: bold;
-// $header-font-style: normal;
-// $header-font-color: #222;
 // $header-line-height: 1.4;
 // $header-top-margin: .2em;
 // $header-bottom-margin: .5em;
@@ -973,7 +970,6 @@ $header-font-color: #06142B;
 
 // Background color for the top bar
 $topbar-bg: #06142B;
-// $topbar-bg: #111;
 
 // Height and margin
 // $topbar-height: 45px;
