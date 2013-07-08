@@ -33,7 +33,7 @@ class LocationSettingsController < ApplicationController
   def destroy
     location_settings = LocationSetting.find(params[:id])
     location_settings.destroy
-    redirect_to '/profile'
+    redirect_to profile_path(current_user)
   end
 
   #GET /location_settings/:id
@@ -53,7 +53,7 @@ class LocationSettingsController < ApplicationController
     end
 
     if @location_setting.update_attributes(params[:location_setting])
-      redirect_to '/profile'
+      redirect_to profile_path(current_user)
     else
       render :edit
     end
