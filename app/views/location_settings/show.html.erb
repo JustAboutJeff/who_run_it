@@ -10,6 +10,16 @@
       <td>Notification Method:</td>
       <td><%= @location_setting.notification_method %></td>
     </tr>
+    <tr>
+      <td>Pace:</td>
+      <td>Min: <%= @location_setting.pace_min %></td>
+      <td>Max: <%= @location_setting.pace_max %></td>
+    </tr>
+    <tr>
+      <td>Distance:</td>
+      <td>Min: <%= @location_setting.distance_min %></td>
+      <td>Max: <%= @location_setting.distance_max %></td>
+    </tr>
   </table>
   <div id="map-location"></div>
 </fieldset>

@@ -30,8 +30,7 @@ fieldset {
   background-color: #E6EBEA;
 }
 
-
-#event_pace, #hour, #minute, #ampm {
+#event_pace, #hour, #minute, #ampm, #route {
   width: 70px;
   font-size: 1.05em;
   margin-bottom: 10px;
@@ -40,6 +39,10 @@ fieldset {
 
 #ampm {
   width: 100px;
+}
+
+#route {
+  width: auto;
 }
 
 #event_pace {
