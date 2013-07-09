@@ -11,9 +11,9 @@
     <%= select_tag :ampm, options_for_select([["am/pm", nil], "AM","PM"]) %>
     <%= label_tag :pace %>
     <%= f.select :pace, options_for_select([["5:00/mile",5],["6:00/mile",6],["7:00/mile",7],["8:00/mile",8],["9:00/mile",9],["10:00/mile",10],["11:00/mile",11],["12:00/mile",12]]) %>
-    <% if current_user && current_user.routes.any? %>
+    <% if current_user && current_user.routes.saved.any? %>
       <%= label_tag :route %>
-      <%= select_tag :route, options_from_collection_for_select(current_user.routes, 'id', 'name', 0) %>
+      <%= select_tag :route, options_from_collection_for_select(current_user.routes.saved, 'id', 'name', 0) %>
     <% end %>
     <p>
       <% if current_user %>

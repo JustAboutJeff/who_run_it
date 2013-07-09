@@ -11,11 +11,12 @@ WhoRunIt::Application.routes.draw do
   # Events
   resources :events
 
-
+  # Routes
+  resources :routes
+  post "/routes/remove", to: "routes#remove"
 
   # Users
   resources :users
-
   get "/profile", to: 'users#show'
 
   # Notifications
