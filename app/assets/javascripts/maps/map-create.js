@@ -21,6 +21,7 @@ $(document).ready(function() {
         opacity: 0.8
         }
       },
+      marker: false,
       polygon: false,
       rectangle: false,
       circle: false
