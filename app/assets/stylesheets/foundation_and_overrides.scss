@@ -16,8 +16,8 @@
 // $em-base: 16px;
 
 // We use these to control various global styles
-$body-bg: #2C3E59;
-$body-font-color: #06142B;
+$body-bg: url('subtle_carbon.png');
+$body-font-color: #aaa;
 $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -29,9 +29,9 @@ $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $text-direction: ltr;
 
 // We use these as default colors throughout
-$primary-color: #A7ED69;
-// $secondary-color: #e9e9e9;
-// $alert-color: #c60f13;
+$primary-color: #362D3E;
+$secondary-color: #c2bebd;
+$alert-color: #F06150;
 // $success-color: #5da423;
 
 // We use these to make sure border radius matches unless we want it different.
@@ -89,14 +89,14 @@ $primary-color: #A7ED69;
 $header-font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $header-font-weight: 900;
 $header-font-style: italic;
-$header-font-color: #06142B;
+$header-font-color: #dff531;
 // $header-line-height: 1.4;
 // $header-top-margin: .2em;
 // $header-bottom-margin: .5em;
 // $header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
-// $h1-font-size: emCalc(44px);
+$h1-font-size: emCalc(80px);
 // $h2-font-size: emCalc(37px);
 // $h3-font-size: emCalc(27px);
 // $h4-font-size: emCalc(23px);
@@ -209,7 +209,7 @@ $header-font-color: #06142B;
 // We use these to style the fieldset border and spacing.
 // $fieldset-border-style: solid;
 // $fieldset-border-width: 1px;
-// $fieldset-border-color: #ddd;
+$fieldset-border-color: #ddd;
 // $fieldset-padding: emCalc(20px);
 // $fieldset-margin: emCalc(18px) 0;
 
@@ -247,7 +247,7 @@ $header-font-color: #06142B;
 
 // We use these to control button text styles.
 // $button-font-family: inherit;
-// $button-font-color: #fff;
+$button-font-color: #bbb;
 // $button-font-color-alt: #333;
 // $button-font-med: emCalc(16px);
 // $button-font-tny: emCalc(11px);
@@ -969,7 +969,7 @@ $header-font-color: #06142B;
 //
 
 // Background color for the top bar
-$topbar-bg: #06142B;
+$topbar-bg: #272528;
 
 // Height and margin
 // $topbar-height: 45px;
@@ -983,8 +983,8 @@ $topbar-bg: #06142B;
 // $topbar-title-font-size: emCalc(17px);
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: #fff;
-// $topbar-link-weight: bold;
+$topbar-link-color: #bbb;
+$topbar-link-weight: bold;
 // $topbar-link-font-size: emCalc(13px);
 
 // Style the top bar dropdown elements
