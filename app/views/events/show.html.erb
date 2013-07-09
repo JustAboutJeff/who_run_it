@@ -52,7 +52,7 @@
   <div id="committed-runners">
     <h5>Committed Runners</h5>
     <% @event.users.each do |user| %>
-      <% if user.notifications.find_by_event_id(@event.id).committed == true %>
+      <% if user.notifications.find_by_event_id(@event.id).committed == 1 %>
         <img id="user-<%= user.id %>"class='circle' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=30&d=mm">
       <% end %>
     <% end %>
@@ -61,7 +61,7 @@
    <div id="notified-runners">
     <h5>Notified Runners</h5>
     <% @event.users.each do |user| %>
-      <% if user.notifications.find_by_event_id(@event.id).committed == false %>
+      <% if user.notifications.find_by_event_id(@event.id).committed == 0 %>
         <img id="user-<%= user.id %>"class='circle' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=30&d=mm">
       <% end %>
     <% end %>

@@ -1,0 +1,18 @@
+<fieldset>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><%= @route.name %></td>
+    </tr>
+    <tr>
+      <td>Distance</td>
+      <td><%= @route.distance %> miles</td>
+    </tr>
+  </table>
+  <div id="map-show"></div>
+  
+</fieldset>
+
+<script type="text/javascript">
+  var waypoints = <%= @waypoints %>;
+</script>
