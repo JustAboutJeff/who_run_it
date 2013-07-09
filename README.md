@@ -34,9 +34,9 @@ Created by:
     	GMAIL_PASSWORD: 'insert password for (DEV/TEST)'
     	SENDGRID_USERNAME: 'insert username for (PROD)'
     	SENDGRID_PASSWORD: 'insert password for (PROD)'
-	TWILIO_SID: 'insert key for (DEV/TEST/PROD)'
-	TWILIO_AUTH_TOKEN: 'insert token for (DEV/TEST/PROD)'
-	TWILIO_PHONE_NUMBER: 'insert phone number for (DEV/TEST/PROD)'
+    	TWILIO_SID: 'insert key for (DEV/TEST/PROD)'
+    	TWILIO_AUTH_TOKEN: 'insert token for (DEV/TEST/PROD)'
+    	TWILIO_PHONE_NUMBER: 'insert phone number for (DEV/TEST/PROD)'
 
 - Run the rake commands to create, migrate and seed a postgres db:
 
