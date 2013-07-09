@@ -16,12 +16,16 @@
       <%= select_tag :route, options_from_collection_for_select(current_user.routes, 'id', 'name', 0) %>
     <% end %>
     <p>
-      <%= f.submit 'Create Run', class: 'button' %>
+      <% if current_user %>
+        <%= f.submit 'Create Run', class: 'button' %>
+      <% else %>
+        <div><%= link_to "Signup For Who Run It", users_path, class: "button alert" %></div>
+      <% end %>
       <%= hidden_field_tag :waypoints %>
       <%= hidden_field_tag :distance %>
     </p>
   <% end %>
-  
+
   <div class="button alert small" id="reset">Reset Route</div>
   <div id="map-create"></div>
 </fieldset>
