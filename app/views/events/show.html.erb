@@ -4,6 +4,11 @@
     <p id='description'><%= @event.description %></p>
   <% end %>
   <p>Organizer: <b><%= @event.user.username %></b> <span><img class='circle' src="http://www.gravatar.com/avatar/<%= @event.user.gravatar_hash %>?s=30&d=mm"></span></p>
+
+  <% if current_user.notified_events.include?(@event) %>
+    <div class="button small">Commit to Run</div>
+  <% end %>
+
   <table class='show-event'>
     <tr>
       <td>When</td>
@@ -23,6 +28,15 @@
     </tr>
   </table>
   <div id="map-show"></div>
+
+  <div>
+    <h5>Committed Runners</h5>
+    <% @event.users.each do |user| %>
+      <% if user.notifications.find_by_event_id(@event.id).committed == true %>
+        <p><img class='circle' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=30&d=mm"></p>
+      <% end %>
+    <% end %>
+  </div>
 </fieldset>
 
 <script type="text/javascript">
