@@ -13,21 +13,47 @@
  *= require foundation_and_overrides
  */
 
+ div.color-top {
+  display: block;
+  height: .20em;
+  background-color: #dff531;
+ }
+
+
 img.circle {
   margin-top: -0.25em;
-  border: 0.17em solid #8CE83B;
+  border: 0.25em solid #bbb;
   vertical-align: middle;
   -webkit-border-radius: 500px;
      -moz-border-radius: 500px;
           border-radius: 500px;
+  -moz-box-shadow:    2px 2px 0px 2px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 2px 2px 0px 2px rgba(0,0,0,0.2);
+  box-shadow:         2px 2px 0px 2px rgba(0,0,0,0.2);
+
 }
 
-h1,h2,h3,h4,h5,h6 {
+div.sticky {
+  -moz-box-shadow:    0px 2px 0px 2px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 2px 0px 2px rgba(0,0,0,0.2);
+  box-shadow:         0px 2px 0px 2px rgba(0,0,0,0.2);
+
+}
+
+nav img.circle {
+  border: 0.18em solid #bbb;
+  -moz-box-shadow:    0px 0px 0px 0px rgba(0,0,0,0);
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+  box-shadow:         0px 0px 0px 0px rgba(0,0,0,0);
+
+}
+
+h1,h2,h3,h4,h5,h6, nav {
   text-transform: uppercase;
 }
 
 fieldset {
-  background-color: #E6EBEA;
+  background-color: #272528;
 }
 
 #event_pace, #hour, #minute, #ampm, #route {
@@ -95,3 +121,20 @@ table.show-event, table.show-location {
 .leaflet-control span {
   font-size: 1.4em;
 }
+
+ body:after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: -moz-linear-gradient(top, rgba(54,45,62,0.48) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(54,45,62,0.48)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(54,45,62,0.48) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(54,45,62,0.48) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(54,45,62,0.48) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(54,45,62,0.48) 0%,rgba(0,0,0,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7a362d3e', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+};

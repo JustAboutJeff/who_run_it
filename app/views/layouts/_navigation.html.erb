@@ -1,4 +1,5 @@
 <div class="contain-to-grid sticky">
+  <div class="color-top"></div>
   <nav class="top-bar">
     <ul class="title-area">
       <!-- Title Area -->
@@ -13,7 +14,7 @@
       <ul class="right">
         <% if current_user %>
         <li><a href="<%= profile_path(current_user) %>"><%= current_user.username %>&nbsp;<img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=30&d=mm"></a></li>
-        <li><%= link_to 'Create Event', root_path %></li>
+        <li><%= link_to 'Run', root_path %></li>
         <li><%= link_to 'Logout', logout_path, method: :delete %></li>
         <% else %>
         <li><%= link_to 'Login', login_path %></li>
