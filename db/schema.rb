@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130709223820) do
 
-
   create_table "events", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
