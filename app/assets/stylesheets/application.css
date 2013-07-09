@@ -13,6 +13,14 @@
  *= require foundation_and_overrides
  */
 
+ nav.top-bar {
+  z-index: 2000;
+ }
+
+.leaflet-top, .leaflet-bottom {
+  z-index: 2;
+  }
+
 img.circle {
   margin-top: -0.25em;
   border: 0.17em solid #8CE83B;
