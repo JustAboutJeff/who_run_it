@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def format_phone_number
-    if self.cellphone != nil
+    unless self.cellphone == ""
       digits = self.cellphone.gsub(/[^\d]/, '')
       self.cellphone = "1" + digits[-10..-1]
     end
