@@ -1,6 +1,8 @@
 ![WHO RUN IT](http://i.minus.com/iFQ6RJ7jHO4LB.png "WHO RUN IT")
 
-> WHO RUN IT is a disributed, social running club for the web: <http://whorunit.herokuapp.com>
+> WHO RUN IT is a disributed, social running club for the web.
+
+<http://whorunit.herokuapp.com>
 
 **Created by:**
 
@@ -23,13 +25,13 @@
 
     	$ bundle install
 
-- Depending on your local development environment, you may need to create and save out a **.ruby-gemset** and/or **.ruby-version* dot file(s) within the main application directory.
+- Depending on your local development environment, you may need to create and save out a **.ruby-gemset** and/or **.ruby-version** dot file(s) within the main application directory to configure your gemset and ruby version.
 
 - Within the app's config directory open the **local_env.yaml.sample** file and define the environment variables for your local configuration. Save a new copy as **local_env.yaml**. Check the config/environments directory to view the settings these environment variables control:
 
-    	GOOGLE_MAPS_KEY:   'insert key for (DEV/TEST/PROD)'
-    	GMAIL_USERNAME:    'insert username for (DEV/TEST)'
-    	GMAIL_PASSWORD:    'insert password for (DEV/TEST)'
+    	GOOGLE_MAPS_KEY: 'insert key for (DEV/TEST/PROD)'
+    	GMAIL_USERNAME: 'insert username for (DEV/TEST)'
+    	GMAIL_PASSWORD: 'insert password for (DEV/TEST)'
     	SENDGRID_USERNAME: 'insert username for (PROD)'
     	SENDGRID_PASSWORD: 'insert password for (PROD)'
 
