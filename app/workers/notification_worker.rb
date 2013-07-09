@@ -5,8 +5,7 @@ class NotificationWorker
 
   def perform(notification_queue = {})
     event = Event.find_by_id(notification_queue["event_id"])
-    p event
-
+  
     # Contact via email
     notification_queue["email"].each do |user_id|
       user = User.find_by_id(user_id)
