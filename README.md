@@ -1,6 +1,6 @@
 ![WHO RUN IT](http://i.minus.com/iFQ6RJ7jHO4LB.png "WHO RUN IT")
 
-> WHO RUN IT is a disributed, social running club for the web.
+> WHO RUN IT is a disributed, social running club for the web: <http://whorunit.herokuapp.com>
 
 **Created by:**
 
@@ -9,13 +9,11 @@
 - Jeff Belser [@JustAboutJeff](http://www.twitter.com/justaboutjeff) [Github]("https://github.com/JustAboutJeff") - <JustAboutJeff@gmail.com>
 
 ##About
-===
 
  ...
 
 
 ##Install
-===
 
 - Fork the repo and clone the files onto your local machine:
 
@@ -43,25 +41,22 @@
 
 		$ rails s
 
-- Open a broswer and navigate to **localhost:3000**
+- Open a broswer and navigate to localhost:3000
 
 - Enjoy
 
 ##Usage
-===
 
 Please consult the production version of the app hosted on heroku for a live demonstration:
 
 <http://whorunit.herokuapp.com>
 
 ##Design
-===
 
  ...
 
 
 ##Testing
-===
  ...
 
 ===
