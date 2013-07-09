@@ -5,6 +5,8 @@ class CreateWaypoints < ActiveRecord::Migration
       t.integer :position
       t.float   :latitude
       t.float   :longitude
+
+      t.timestamps
     end
   end
 end
