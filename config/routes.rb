@@ -16,6 +16,9 @@ WhoRunIt::Application.routes.draw do
   get  '/users',     to: 'users#new'
   post '/users',     to: 'users#create'
 
+  # Notifications
+  post "/commit", to: "notifications#commit"
+
   # LocationSettings
   resources :location_settings
 end
