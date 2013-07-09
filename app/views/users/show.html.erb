@@ -12,4 +12,48 @@
     <% end %>
     <%= link_to "Add a location", new_location_setting_path %>
   <% end %>
+
+  <% if @user.notified_events.active.any? %>
+    <table>
+      <h5>Notified Events</h5>
+      <tr>
+        <td>Event Title</td>
+        <td>When</td>
+        <td>Pace</td>
+        <td>Distance</td>
+      </tr>
+      <% @user.notified_events.active.order("start_time").each do |event| %>
+        <tr>
+          <td><%= link_to event.title, event_path(event) %></td>
+          <td><%= event.start_time.localtime.strftime("%I:%M%p on %m/%d/%Y") %></td>
+          <td><%= event.pace %>:00 min/mile</td>
+          <td><%= event.route.distance %> miles</td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+
+  <% if @user.events.active.any? %>
+    <table>
+      <h5>Created Events</h5>
+      <tr>
+        <td>Event Title</td>
+        <td>When</td>
+        <td>Pace</td>
+        <td>Distance</td>
+      </tr>
+      <% @user.events.active.order("start_time").each do |event| %>
+        <tr>
+          <td><%= link_to event.title, event_path(event) %></td>
+          <td><%= event.start_time.localtime.strftime("%I:%M%p on %m/%d/%Y") %></td>
+          <td><%= event.pace %>:00 min/mile</td>
+          <td><%= event.route.distance %> miles</td>
+          <td>
+            <%= link_to 'Edit', edit_event_path(event), class: 'button tiny secondary' %>
+            <%= link_to 'Delete', event, method: :delete, class: 'button tiny alert' %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
 </fieldset>
