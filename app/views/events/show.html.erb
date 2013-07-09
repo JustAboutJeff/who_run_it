@@ -11,7 +11,7 @@
       <input id="current-user-id" name="current-user-id" type="hidden" value="<%= current_user.id %>">
       <input id="current-user-avatar" name="current-user-avatar" type="hidden" value="<%= current_user.gravatar_hash %>">
       <div class="switch">
-        <% if current_user.notifications.find_by_event_id(@event.id).committed == false %>
+        <% if current_user.notifications.find_by_event_id(@event.id).committed == 0 %>
           <input id="z" name="committed-switch" type="radio" checked>
           <label for="z" onclick="">Commit to Run?</label>
 

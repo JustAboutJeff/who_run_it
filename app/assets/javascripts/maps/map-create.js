@@ -2,8 +2,9 @@ $(document).ready(function() {
 
   if ($('#map-create').length) {
   var routeLayer = L.layerGroup();
-  var map = L.mapbox.map('map-create', 'mthoover1.map-nnfbdcbz', {layers: routeLayer})
-  map.locate({setView: true, maxZoom: 16});
+  var map = L.mapbox.map('map-create', 'mthoover1.map-nnfbdcbz', {layers: routeLayer,
+                                                                  scrollWheelZoom: false})
+  // map.locate({setView: true, maxZoom: 16});
 
   var waypoints = [];
 
