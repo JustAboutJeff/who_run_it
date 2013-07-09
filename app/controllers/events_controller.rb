@@ -27,7 +27,6 @@ class EventsController < ApplicationController
                        pace: params[:event][:pace])
 
     if @event.save
-      # TODO: send out notifications only to users that accept the setting
       notification_queue = @event.create_notifications
       NotificationWorker.perform_async(notification_queue)
       redirect_to event_path(@event)
