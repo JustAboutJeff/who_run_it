@@ -37,3 +37,13 @@ $('input[name=committed-switch]').click(function() {
   });
 });
 
+$('.delete-route').click(function() {
+  routeId = $(this).siblings('#route-id').val();
+  data = {id: routeId}
+  url = '/routes/remove'
+  row = $(this).parent().parent();
+
+  $.post(url, data, function() {
+    row.remove();
+  });
+});

@@ -13,6 +13,23 @@
     <%= link_to "Add a location", new_location_setting_path %>
   <% end %>
 
+  <% if @user.routes.saved.any? %>
+    <table>
+      <h5>Saved Routes</h5>
+      <tr>
+        <td>Name</td>
+        <td>Distance</td>
+      </tr>
+      <% @user.routes.saved.each do |route| %>
+        <tr>
+          <td><%= link_to route.name, route_path(route) %></td>
+          <td><%= route.distance %> miles</td>
+          <td><input id='route-id' type='hidden' value='<%= route.id %>'><div class="button tiny alert delete-route">Delete</div></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+
   <% if @user.notified_events.active.any? %>
     <table>
       <h5>Notified Events</h5>

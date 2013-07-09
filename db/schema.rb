@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709015822) do
+ActiveRecord::Schema.define(:version => 20130709191914) do
 
   create_table "events", :force => true do |t|
     t.integer  "user_id"
@@ -47,8 +47,9 @@ ActiveRecord::Schema.define(:version => 20130709015822) do
   end
 
   create_table "routes", :force => true do |t|
-    t.string "name"
-    t.float  "distance"
+    t.string  "name"
+    t.float   "distance"
+    t.boolean "saved",    :default => true
   end
 
   create_table "users", :force => true do |t|

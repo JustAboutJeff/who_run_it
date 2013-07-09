@@ -6,4 +6,6 @@ class Route < ActiveRecord::Base
 
   validates_presence_of :name, :distance
   validates_length_of   :name, maximum: 30
+
+  scope :saved, -> { where(saved: true) }
 end

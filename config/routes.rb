@@ -11,6 +11,10 @@ WhoRunIt::Application.routes.draw do
   # Events
   resources :events
 
+  # Routes
+  resources :routes
+  post "/routes/remove", to: "routes#remove"
+
   # Users
   get  '/users/:id', to: 'users#show', as: '/profile'
   get  '/users',     to: 'users#new'
