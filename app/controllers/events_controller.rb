@@ -30,7 +30,7 @@ class EventsController < ApplicationController
       NotificationWorker.perform_async(@event.id)
       redirect_to event_path(@event)
     else
-      redirect_to "/profile"
+      render 'new'
     end
   end
 

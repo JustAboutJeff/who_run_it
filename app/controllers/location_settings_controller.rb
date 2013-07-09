@@ -21,7 +21,7 @@ class LocationSettingsController < ApplicationController
     if location_setting.save
       redirect_to profile_path(current_user)
     else
-      render :new
+      render 'new'
     end
   end
 
@@ -36,7 +36,6 @@ class LocationSettingsController < ApplicationController
   end
 
   def update
-    puts "#{params}"
     @location_setting = LocationSetting.find(params[:id])
 
     if (params[:address] != "")
@@ -48,7 +47,7 @@ class LocationSettingsController < ApplicationController
     if @location_setting.update_attributes(params[:location_setting])
       redirect_to profile_path(current_user)
     else
-      render :edit
+      render 'edit'
     end
   end
 end
