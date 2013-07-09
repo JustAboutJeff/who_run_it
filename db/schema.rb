@@ -41,14 +41,18 @@ ActiveRecord::Schema.define(:version => 20130709015822) do
   end
 
   create_table "notifications", :force => true do |t|
-    t.integer "user_id"
-    t.integer "event_id"
-    t.boolean "committed", :default => false
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "committed",  :default => false
   end
 
   create_table "routes", :force => true do |t|
-    t.string "name"
-    t.float  "distance"
+    t.string   "name"
+    t.float    "distance"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -62,10 +66,12 @@ ActiveRecord::Schema.define(:version => 20130709015822) do
   end
 
   create_table "waypoints", :force => true do |t|
-    t.integer "route_id"
-    t.integer "position"
-    t.float   "latitude"
-    t.float   "longitude"
+    t.integer  "route_id"
+    t.integer  "position"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
