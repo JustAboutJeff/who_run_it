@@ -16,9 +16,8 @@ WhoRunIt::Application.routes.draw do
   post "/routes/remove", to: "routes#remove"
 
   # Users
-  get  '/users/:id', to: 'users#show', as: '/profile'
-  get  '/users',     to: 'users#new'
-  post '/users',     to: 'users#create'
+  resources :users
+  get "/profile", to: 'users#show'
 
   # Notifications
   post "/commit", to: "notifications#commit"

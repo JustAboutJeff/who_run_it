@@ -1,5 +1,6 @@
 <fieldset>
   <p><img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=150&d=mm"></p>
+  <p><%= link_to "Update Profile", edit_user_path(@user), class: 'button secondary tiny' %></p>
   <p>Username: <%= @user.username %></p>
   <p>Email: <%= @user.email %></p>
   <p>Cellphone: <%= @user.cellphone %></p>
