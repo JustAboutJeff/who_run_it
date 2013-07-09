@@ -3,10 +3,11 @@ class User < ActiveRecord::Base
 
   attr_accessible :username, :password, :email, :cellphone
 
-  has_many :events
+  has_many :events, :source => :event
   has_many :routes, :through => :events, :uniq => true
   has_many :location_settings
   has_many :notifications
+  has_many :notified_events, :through => :notifications, :source => :event
 
   has_secure_password
 

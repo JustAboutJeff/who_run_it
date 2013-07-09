@@ -13,6 +13,8 @@ class Event < ActiveRecord::Base
 
   before_save :generate_url_key
 
+  scope :active, -> { where("start_time > ?", Time.now.utc) }
+
   def self.generate_time(hr, min, ampm)
     time = Time.now
     hour = hr.to_i
