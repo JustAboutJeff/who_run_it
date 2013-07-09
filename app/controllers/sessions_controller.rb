@@ -1,11 +1,9 @@
 class SessionsController < ApplicationController
 
-  # GET /login
   def new
     @user = User.new
   end
 
-  # POST /login
   def create
     @user = User.find_by_username(params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
@@ -16,7 +14,6 @@ class SessionsController < ApplicationController
     end
   end
 
-  # DELETE /logout
   def destroy
     session.clear
     redirect_to root_path
