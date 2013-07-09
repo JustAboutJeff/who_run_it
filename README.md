@@ -6,9 +6,9 @@
 
 **Created by:**
 
-- Mark Morris [@blurredbits](http://www.twitter.com/blurredbits) - [Github]("https://github.com/blurredbits") - <mmorris00@mac.com>
-- Matt Hoover [@mthoover1](http://www.twitter.com/mthoover1) [Github]("https://github.com/blurredbits") - <mthoover1@gmail.com>
-- Jeff Belser [@JustAboutJeff](http://www.twitter.com/justaboutjeff) [Github]("https://github.com/JustAboutJeff") - <JustAboutJeff@gmail.com>
+- Mark Morris [@blurredbits](http://www.twitter.com/blurredbits) - [Github]("http://github.com/blurredbits") - <mmorris00@mac.com>
+- Matt Hoover [@mthoover1](http://www.twitter.com/mthoover1) [Github]("http://github.com/blurredbits") - <mthoover1@gmail.com>
+- Jeff Belser [@JustAboutJeff](http://www.twitter.com/justaboutjeff) [Github]("http://github.com/JustAboutJeff") - <JustAboutJeff@gmail.com>
 
 ##About
 
