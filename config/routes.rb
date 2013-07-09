@@ -11,10 +11,12 @@ WhoRunIt::Application.routes.draw do
   # Events
   resources :events
 
+
+
   # Users
-  get  '/users/:id', to: 'users#show', as: '/profile'
-  get  '/users',     to: 'users#new'
-  post '/users',     to: 'users#create'
+  resources :users
+
+  get "/profile", to: 'users#show'
 
   # Notifications
   post "/commit", to: "notifications#commit"

@@ -18,4 +18,19 @@ class UsersController < ApplicationController
   	@user = current_user
     @location_settings = @user.location_settings.all
   end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if current_user.id == @user.id && @user.update_attributes(params[:user])
+      redirect_to profile_path(current_user)
+    else
+      render 'edit'
+    end
+  end
+
 end
