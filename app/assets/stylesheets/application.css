@@ -37,6 +37,10 @@ fieldset {
   border-radius: 0px;
 }
 
+#event_pace {
+  width: auto;
+}
+
 #ampm {
   width: 100px;
 }
