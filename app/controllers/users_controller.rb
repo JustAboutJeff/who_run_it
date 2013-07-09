@@ -5,12 +5,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(params[:user])
-    if user.save
+    @user = User.new(params[:user])
+    if @user.save
       session[:user_id] = user.id
-      redirect_to '/profile'
+      redirect_to profile_path(user)
     else
-      render :new
+      render 'new'
     end
   end
 
