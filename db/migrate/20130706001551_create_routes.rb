@@ -3,6 +3,8 @@ class CreateRoutes < ActiveRecord::Migration
     create_table :routes do |t|
       t.string :name
       t.float  :distance
+
+      t.timestamps
     end
   end
 end
