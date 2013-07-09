@@ -32,6 +32,39 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def create_notifications
+    event_coords = [self.waypoints.first.latitude, self.waypoints.first.longitude]
+    users_for_email = []
+    users_for_text = []
+
+    User.all.each do |user|
+      sent_email = false
+      sent_text = false
+      user.location_settings.each do |location|
+        if (self.pace >= location.pace_min) && (self.pace <= location.pace_max)
+          if (self.route.distance >= location.distance_min) && (self.route.distance <= location.distance_max)
+            location_coords = [location.latitude, location.longitude]
+            if Geocoder::Calculations.distance_between(event_coords, location_coords) <= 10
+              if (location.notification_method == "2") || (location.notification_method == "4")
+                break if sent_email == true
+                users_for_email << user.id
+                sent_email = true
+              end
+
+              if (location.notification_method == "3") || (location.notification_method == "4")
+                break if sent_text == true
+                users_for_text << user.id
+                sent_text = true
+              end
+            end
+          end
+        end
+      end
+      Notification.create(user_id: user.id, event_id: self.id, committed: false) if ((sent_email == true) || (sent_text == true))
+    end
+    {email: users_for_email, text: users_for_text, event_id: self.id}
+  end 
+
   def to_param
   	url_key
   end

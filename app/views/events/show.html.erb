@@ -4,9 +4,29 @@
     <p id='description'><%= @event.description %></p>
   <% end %>
   <p>Organizer: <b><%= @event.user.username %></b> <span><img class='circle' src="http://www.gravatar.com/avatar/<%= @event.user.gravatar_hash %>?s=30&d=mm"></span></p>
+ 
+  <% if current_user.notifications.find_by_event_id(@event.id) %>
+    <form id="commit-toggle">
+      <input id="notification-id" name="id" type="hidden" value="<%= current_user.notifications.find_by_event_id(@event.id).id %>">
+      <input id="current-user-id" name="current-user-id" type="hidden" value="<%= current_user.id %>">
+      <input id="current-user-avatar" name="current-user-avatar" type="hidden" value="<%= current_user.gravatar_hash %>">
+      <div class="switch">
+        <% if current_user.notifications.find_by_event_id(@event.id).committed == false %>
+          <input id="z" name="committed-switch" type="radio" checked>
+          <label for="z" onclick="">Commit to Run?</label>
 
-  <% if current_user.notified_events.include?(@event) %>
-    <div class="button small">Commit to Run</div>
+          <input id="z1" name="committed-switch" type="radio" >
+          <label for="z1" onclick="">Committed</label>
+        <% else %>
+          <input id="z" name="committed-switch" type="radio" >
+          <label for="z" onclick="">Commit to Run?</label>
+
+          <input id="z1" name="committed-switch" type="radio" checked>
+          <label for="z1" onclick="">Committed</label>
+        <% end %>
+        <span></span>
+      </div>
+    </form>
   <% end %>
 
   <table class='show-event'>
@@ -29,11 +49,20 @@
   </table>
   <div id="map-show"></div>
 
-  <div>
+  <div id="committed-runners">
     <h5>Committed Runners</h5>
     <% @event.users.each do |user| %>
       <% if user.notifications.find_by_event_id(@event.id).committed == true %>
-        <p><img class='circle' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=30&d=mm"></p>
+        <img id="user-<%= user.id %>"class='circle' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=30&d=mm">
+      <% end %>
+    <% end %>
+  </div>
+
+   <div id="notified-runners">
+    <h5>Notified Runners</h5>
+    <% @event.users.each do |user| %>
+      <% if user.notifications.find_by_event_id(@event.id).committed == false %>
+        <img id="user-<%= user.id %>"class='circle' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=30&d=mm">
       <% end %>
     <% end %>
   </div>

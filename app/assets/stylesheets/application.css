@@ -52,6 +52,10 @@ fieldset {
   font-size: 0.9em;
 }
 
+#commit-toggle {
+  width: 250px;
+}
+
 p.show-event {
   margin: 0 0 5px 0;
 }

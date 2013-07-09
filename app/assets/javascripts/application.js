@@ -16,3 +16,24 @@
 //= require_tree .
 
 $(document).foundation();
+
+$('input[name=committed-switch]').click(function() {
+  userId = $('#current-user-id').val();
+  userAvatar = $('#current-user-avatar').val();
+  data = {id: $('#notification-id').val()};
+  url = '/commit';
+
+  imgTemplate = "<img id='user-" + userId + "'class='circle' src='http://www.gravatar.com/avatar/" + userAvatar + "?s=30&d=mm'>"
+
+  $.post(url, data, function(response) {
+    if (response === true) {
+      $('#user-' + userId).remove();
+      $('#committed-runners').append(imgTemplate);
+    }
+    else {
+      $('#user-' + userId).remove();
+      $('#notified-runners').append(imgTemplate);
+    }
+  });
+});
+
