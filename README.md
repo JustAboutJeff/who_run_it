@@ -1,6 +1,6 @@
 ![WHO RUN IT](http://i.minus.com/iFQ6RJ7jHO4LB.png "WHO RUN IT")
 
-> WHO RUN IT is a disributed, social running club for the web.
+> WHO RUN IT - a distributed running club for the web.
 
 <http://whorunit.herokuapp.com>
 
