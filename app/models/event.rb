@@ -60,7 +60,7 @@ class Event < ActiveRecord::Base
           end
         end
       end
-      Notification.create(user_id: user.id, event_id: self.id, committed: false) if ((sent_email == true) || (sent_text == true))
+      Notification.create(user_id: user.id, event_id: self.id, committed: 0) if ((sent_email == true) || (sent_text == true))
     end
     {email: users_for_email, text: users_for_text, event_id: self.id}
   end 

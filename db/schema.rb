@@ -43,17 +43,17 @@ ActiveRecord::Schema.define(:version => 20130709191914) do
   create_table "notifications", :force => true do |t|
     t.integer  "user_id"
     t.integer  "event_id"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "committed",  :default => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "committed",  :default => 0
   end
 
   create_table "routes", :force => true do |t|
-    t.string  "name"
-    t.float   "distance"
-    t.boolean "saved",    :default => true
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "name"
+    t.float    "distance"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "saved",      :default => 1
   end
 
   create_table "users", :force => true do |t|

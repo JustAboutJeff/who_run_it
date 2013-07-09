@@ -1,6 +1,6 @@
 class AddSavedRoutes < ActiveRecord::Migration
   def up
-    add_column :routes, :saved, :boolean, default: true
+    add_column :routes, :saved, :integer, default: 1
   end
 
   def down

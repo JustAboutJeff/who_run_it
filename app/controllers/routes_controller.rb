@@ -12,7 +12,7 @@ class RoutesController < ApplicationController
 
   def remove
     route = Route.find_by_id(params[:id])
-    route.toggle!(:saved)    
+    route.update_attributes(saved: 0)
     render :nothing => true
   end
 end

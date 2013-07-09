@@ -26,7 +26,7 @@ $('input[name=committed-switch]').click(function() {
   imgTemplate = "<img id='user-" + userId + "'class='circle' src='http://www.gravatar.com/avatar/" + userAvatar + "?s=30&d=mm'>"
 
   $.post(url, data, function(response) {
-    if (response === true) {
+    if (response === 1) {
       $('#user-' + userId).remove();
       $('#committed-runners').append(imgTemplate);
     }
