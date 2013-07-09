@@ -16,7 +16,7 @@ $(document).ready(function() {
       position: 'topleft',
       polyline: {
         shapeOptions: {
-        color: "#2c3e59",
+        color: "#dff531",
         weight: 8,
         opacity: 0.8
         }
