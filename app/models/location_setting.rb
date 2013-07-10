@@ -33,13 +33,3 @@ class LocationSetting < ActiveRecord::Base
     end
   end
 end
-
-
-# create
-# if address is blank, address cant be blank
-# if address cannot be geocoded, address invalid error message
-# if address can be geocoded, lat lng is set
-
-# update
-# if address it not altered, geocoding DOES NOT OCCUR
-# if address is altered geocoding occurs and save object has newly set latlng
