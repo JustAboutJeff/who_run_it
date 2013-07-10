@@ -7,39 +7,22 @@ class EventsController < ApplicationController
     @event = Event.new(user_id: current_user.id,
                        title: params[:event][:title],
                        description: params[:event][:description],
-                       start_time: time,
+                       hour: params[:hour],
+                       minute: params[:minute],
+                       ampm: params[:ampm],
                        pace: params[:event][:pace])
     @event.do_not_validate_route = true
 
-    if @event.valid:?
-      # create routes and waypoints
-      # @event.route = ...
-      # @wevent.do_not_validate_rooute = false
-
+    if @event.valid?
+      @event.route = find_or_create_route
+      @event.do_not_validate_route = false
       if @event.save
-        # ... add route error to object
-        # redirect
+        redirect_to event_path(@event)
       else
-        render :new
+        render 'new'
       end
-
-      # go create way ppoints and routes
-      # ...
     else
       render :new
-    end
-
-    # HANDLE VALIDATIONS SO IT DOESNT CHECK FOR ROUTE ID YET
-
-    @route = find_or_create_route
-
-    #time = Event.generate_time(params[:hour], params[:minute], params[:ampm])
-    # PUT THIS IN EVENT MODEL
-
-    if @event.save
-      redirect_to event_path(@event)
-    else
-      render 'new'
     end
   end
 
