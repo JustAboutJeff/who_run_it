@@ -1,11 +1,11 @@
 <fieldset>
-  <div id="map-create"></div>
-  <h2>Create Run</h2>
+  <div id="map-create" class="dark"></div>
+  <h3 class="subheader">Create Run</h3>
   <%= form_for @event do |f| %>
     <%= label_tag :title %>
-    <%= f.text_field :title, placeholder: 'Title', autofocus: true %>
+    <%= f.text_field :title, placeholder: 'Downtown 5K'%>
     <%= label_tag :description %>
-    <%= f.text_field :description, placeholder: 'Description' %>
+    <%= f.text_field :description, placeholder: 'Around the Loop and back' %>
     <%= label_tag :When %>
     <%= select_tag :hour, options_for_select([["hr", nil],1,2,3,4,5,6,7,8,9,10,11,12]) %>
     <%= select_tag :minute, options_for_select([["min", nil],["00", 0],15,30,45]) %>
@@ -20,13 +20,13 @@
       <% if current_user %>
         <%= f.submit 'Create Run', class: 'button' %>
       <% else %>
-        <div><%= link_to "Signup For Who Run It", users_path, class: "button alert" %></div>
+        <div><%= link_to "Signup For WHO RUN IT", users_path, class: "button alert" %></div>
       <% end %>
       <%= hidden_field_tag :waypoints %>
       <%= hidden_field_tag :distance %>
     </p>
   <% end %>
 
-  <div class="button alert small" id="reset">Reset Route</div>
+  <span class="button alert small" id="reset">Reset Route</span>
   
 </fieldset>

@@ -1,5 +1,5 @@
 <fieldset>
-  <h1><%= @event.title %></h1>
+  <h3 class="subheader"><%= @event.title %></h3>
   <% if @event.description != "" %>
     <p id='description'><%= @event.description %></p>
   <% end %>
@@ -47,7 +47,7 @@
       <td><b><%= (@event.route.distance * @event.pace).round(0) %> minutes</b></td>
     </tr>
   </table>
-  <div id="map-show"></div>
+  <div id="map-show" class="dark"></div>
 
   <div id="committed-runners">
     <h5>Committed Runners</h5>

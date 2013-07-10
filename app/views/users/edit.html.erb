@@ -1,14 +1,14 @@
 <fieldset>
-  <h1>Update User Profile</h1>
+  <h3 class="subheader">Update Profile</h3>
   <%= form_for @user do |f| %>
     <%= label_tag :username %>
-    <%= f.text_field :username, placeholder: 'Jane' %>
+    <%= f.text_field :username, placeholder: 'Jane', autofocus: true %>
     <%= label_tag :cellphone %>
     <%= f.telephone_field :cellphone, placeholder: '555-555-5555' %>
     <%= label_tag :email %>
     <%= f.email_field :email, placeholder: 'JaneDoe@example.com' %>
     <%= label_tag :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, placeholder: 'Password'  %>
     <%= f.submit 'Update', class: 'button' %>
   <% end %>
 </fieldset>

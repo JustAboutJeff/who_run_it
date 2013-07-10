@@ -1,5 +1,5 @@
 <fieldset>
-  <h2><%= @location_setting.name %></h2>
+  <h3 class="subheader"><%= @location_setting.name %></h3>
 
   <table class='show-location'>
     <tr>
@@ -25,7 +25,7 @@
       <td><%= @location_setting.address %></td>
     </tr>
   </table>
-  <div id="map-location"></div>
+  <div id="map-location" class="dark"></div>
 </fieldset>
 
 <script type="text/javascript">
