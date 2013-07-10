@@ -1,10 +1,10 @@
 <fieldset>
+  <%= render 'layouts/feedback' %>
   <legend><h3 class="subheader">1. Build A Run</h3></legend>
   <div id="map-create" class="dark"></div>
   <span class="button alert small" id="reset">Reset Run</span>
 </fieldset>
 <fieldset>
-  <%= render 'layouts/feedback' %>
   <legend><h3 class="subheader">2. Get Specific</h3></legend>
   <%= form_for @event do |f| %>
     <%= render partial: 'errors/error_report', locals: {type: @event} %>
