@@ -16,7 +16,7 @@
 // $em-base: 16px;
 
 // We use these to control various global styles
-$body-bg: url('subtle_carbon.png');
+$body-bg: url('subtle_carbon_@2X.png');
 $body-font-color: #aaa;
 $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
@@ -96,8 +96,8 @@ $header-font-color: #dff531;
 // $header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
-$h1-font-size: emCalc(80px);
-// $h2-font-size: emCalc(37px);
+$h1-font-size: emCalc(120px);
+$h2-font-size: emCalc(80px);
 // $h3-font-size: emCalc(27px);
 // $h4-font-size: emCalc(23px);
 // $h5-font-size: emCalc(18px);

@@ -13,6 +13,36 @@
  *= require foundation_and_overrides
  */
 
+ .hero {
+  text-align: center;
+  h1 {
+    display: inline-block;
+    margin-bottom: 0;
+    text-shadow: -1px 1px #272528,
+                 -2px 2px #272528,
+                 -3px 3px #272528;
+   -webkit-transition: all 0.12s linear;
+   -moz-transition:    all 0.12s linear;
+   -ms-transition:     all 0.12s linear;
+   -o-transition:      all 0.12s linear;
+  }
+  h1:hover {
+    position: relative;
+    top: -6px;
+    right: -6px;
+    text-shadow: -1px 1px #272528,
+                 -2px 2px #272528,
+                 -3px 3px #272528,
+                 -4px 4px #272528,
+                 -5px 5px #272528,
+                 -6px 6px #272528;
+  }
+
+  h4 {
+    margin-top: 0;
+  }
+ }
+
  div.color-top {
   display: block;
   height: .20em;
@@ -137,3 +167,13 @@ table.show-event, table.show-location {
   background: linear-gradient(to bottom, rgba(54,45,62,0.48) 0%,rgba(0,0,0,0) 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7a362d3e', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 };
+
+::-moz-selection {
+  background-color: #dff531;
+  color: #fff;
+}
+ 
+::selection {
+  background-color: #dff531;
+  color: #fff;
+}
