@@ -195,12 +195,12 @@ $h3-font-size: emCalc(40px);
 // $label-font-color: lighten(#000, 30%);
 // $label-bottom-margin: emCalc(3px);
 // $input-font-family: inherit;
-// $input-font-color: rgba(0,0,0,0.75);
+$input-font-color: rgba(0,0,0,0.75);
 // $input-font-size: emCalc(14px);
-// $input-bg-color: #fff;
-// $input-focus-bg-color: darken(#fff, 2%);
-// $input-border-color: darken(#fff, 20%);
-// $input-focus-border-color: darken(#fff, 40%);
+$input-bg-color: #5c575e;
+$input-focus-bg-color: darken(#5c575e, 2%);
+$input-border-color: darken(#5c575e, 20%);
+$input-focus-border-color: darken(#3f3b42, 40%);
 // $input-border-style: solid;
 // $input-border-width: 1px;
 // $input-disabled-bg: #ddd;
@@ -209,14 +209,14 @@ $h3-font-size: emCalc(40px);
 // We use these to style the fieldset border and spacing.
 // $fieldset-border-style: solid;
 // $fieldset-border-width: 1px;
-$fieldset-border-color: #ddd;
+$fieldset-border-color: #f6fcc3;
 // $fieldset-padding: emCalc(20px);
 // $fieldset-margin: emCalc(18px) 0;
 
 // We use these to style the legends when you use them
-// $legend-bg: #fff;
-// $legend-font-weight: bold;
-// $legend-padding: 0 emCalc(3px);
+$legend-bg: none;
+$legend-font-weight: bold;
+$legend-padding: 0 emCalc(3px);
 
 // We use these to style the prefix and postfix input elements
 // $input-prefix-bg: darken(#fff, 5%);
@@ -1006,7 +1006,7 @@ $topbar-link-weight: bold;
 
 // Transitions and breakpoint styles
 // $topbar-transition-speed: 300ms;
-// $topbar-breakpoint: emCalc(940px); // Change to 9999px for always mobile layout
+$topbar-breakpoint: emCalc(940px); // Change to 9999px for always mobile layout
 // $topbar-media-query: "only screen and (min-width "#{$topbar-breakpoint}")";
 
 

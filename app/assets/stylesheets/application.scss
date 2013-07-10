@@ -13,6 +13,28 @@
  *= require foundation_and_overrides
  */
 
+ h3.profile-details {
+  display: inline-block;
+  margin-bottom: 0.25em;
+ }
+
+ span.profile-edit {
+  margin-left: 0.75em;
+ }
+
+
+ div.profile-details {
+  display: inline-block;
+ }
+
+ div.profile-photo {
+  display: inline-block;
+ }
+
+ span#reset {
+  margin: 1em;
+ }
+
  .hero {
   text-align: center;
   h1 {

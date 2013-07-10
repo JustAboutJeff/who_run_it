@@ -1,6 +1,10 @@
 <fieldset>
+  <legend><h3 class="subheader">1. Build A Run</h3></legend>
   <div id="map-create" class="dark"></div>
-  <h3 class="subheader">Create Run</h3>
+  <span class="button alert small" id="reset">Reset Run</span>
+</fieldset>
+<fieldset>
+  <legend><h3 class="subheader">2. Get Specific</h3></legend>
   <%= form_for @event do |f| %>
     <%= label_tag :title %>
     <%= f.text_field :title, placeholder: 'Downtown 5K'%>
@@ -26,7 +30,8 @@
       <%= hidden_field_tag :distance %>
     </p>
   <% end %>
+</fieldset>
 
-  <span class="button alert small" id="reset">Reset Route</span>
-  
+<fieldset>
+  <legend><h3 class="subheader">3. Share</h3></legend>
 </fieldset>
