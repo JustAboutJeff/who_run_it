@@ -1,6 +1,7 @@
 <fieldset>
   <legend><h3 class="subheader">Edit Event Alert</h3></legend>
   <%= form_for @location_setting do |f| %>
+    <%= render partial: 'errors/error_report', locals: {type: @location_setting} %>
     <%= label_tag :name %>
     <%= f.text_field :name, autofocus: true %>
     <%= label_tag :notification_frequency %>
