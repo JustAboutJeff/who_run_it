@@ -4,7 +4,7 @@ $(document).ready(function() {
     var mapShow = L.mapbox.map('map-show', 'mthoover1.map-nnfbdcbz', {layers: routeLayer})
     mapShow.fitBounds(waypoints);
 
-    var route = L.polyline(waypoints).addTo(mapShow);
+    var route = L.polyline(waypoints, { color: '#dff531' }).addTo(mapShow);
     var start = L.marker(waypoints[0]).addTo(mapShow);
     var finish = L.marker(waypoints.slice(-1)[0]).addTo(mapShow);
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
     //   distance: 2000,
     //   interval: 2000
     // });
-    
+
     mapShow.addLayer(animatedMarker);
   }
 });

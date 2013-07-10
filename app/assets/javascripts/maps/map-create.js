@@ -4,7 +4,7 @@ $(document).ready(function() {
   var routeLayer = L.layerGroup();
   var map = L.mapbox.map('map-create', 'mthoover1.map-nnfbdcbz', {layers: routeLayer,
                                                                   scrollWheelZoom: false})
-  // map.locate({setView: true, maxZoom: 16});
+  //map.locate({setView: true, maxZoom: 16});
 
   var waypoints = [];
 
@@ -17,10 +17,10 @@ $(document).ready(function() {
       position: 'topleft',
       polyline: {
         shapeOptions: {
-        color: "#dff531",
-        weight: 8,
-        opacity: 0.8
-        }
+          color: "#dff531",
+          weight: 8,
+          opacity: 0.8
+          }
       },
       marker: false,
       polygon: false,
