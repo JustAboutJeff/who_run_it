@@ -15,7 +15,7 @@ class LocationSettingsController < ApplicationController
 
   def create
     location_setting = LocationSetting.new(params[:location_setting])
-    coords = Geocoder.coordinates(params[:address])
+    coords = Geocoder.coordinates(params[:location_setting][:address])
     location_setting.update_attributes(latitude: coords[0],
                                        longitude: coords[1])
     if location_setting.save
@@ -38,8 +38,8 @@ class LocationSettingsController < ApplicationController
   def update
     @location_setting = LocationSetting.find(params[:id])
 
-    if (params[:address] != "")
-      coords = Geocoder.coordinates(params[:address])
+    if (params[:location_setting][:address] != "")
+      coords = Geocoder.coordinates(params[:location_setting][:address])
       @location_setting.update_attributes(latitude: coords[0],
                                           longitude: coords[1])
     end
