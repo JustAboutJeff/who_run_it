@@ -11,6 +11,16 @@ describe "events" do
 end
 
 describe "create event" do
+  before do
+    FactoryGirl.create(:user)
+    visit root_path
+    click_link("Login")
+    fill_in("session[username]", with: "niles")
+    fill_in("session[password]", with: "123456")
+    click_button("Login")
+    expect(page).to have_content("Username: niles")
+  end
+
   describe "events#new" do
     it "should create a new event" do
       visit new_event_path
@@ -19,7 +29,7 @@ describe "create event" do
       # clicks on map to create a start point/route js
       page.select("10", from: "event[pace]")
       # run javascript to select date
-      click_button("Create Event")
+      click_button("Create Run")
       expect(page).to have_content("Event Created.")
     end
 
@@ -29,8 +39,8 @@ describe "create event" do
       # clicks on map to create a start point/route js
       page.select("10", from: "event[pace]")
       # run javascript to select date
-      click_button("Create Event")
-      expect(page).to have_content("Error - Event must have title")
+      click_button("Create Run")
+      expect(page).to have_content("Create Run")
     end
 
     it "should ensure a description is added" do
@@ -39,8 +49,8 @@ describe "create event" do
       # clicks on map to create a start point/route js
       page.select("10", from: "event[pace]")
       # run javascript to select date
-      click_button("Create Event")
-      expect(page).to have_content("Error - Event must have description")
+      click_button("Create Run")
+      expect(page).to have_content("Create Run")
     end
 
     it "should ensure a starting point is added" do
@@ -50,8 +60,8 @@ describe "create event" do
       # clicks on map to create a start point/route js
       page.select("10", from: "event[pace]")
       # run javascript to select date
-      click_button("Create Event")
-      expect(page).to have_content("Error - Event must have starting location")
+      click_button("Create Run")
+      expect(page).to have_content("Create Run")
     end
 
     it "should ensure a pace is added" do
@@ -60,8 +70,8 @@ describe "create event" do
       fill_in("event[description]", with: "Easy 2 mile run along Lake Shore drive")
       # clicks on map to create a start point/route js
       # run javascript to select date
-      click_button("Create Event")
-      expect(page).to have_content("Error - Event must have a pace")
+      click_button("Create Run")
+      expect(page).to have_content("Create Run")
     end
 
     it "should ensure a start date/time is added" do
@@ -70,8 +80,8 @@ describe "create event" do
       fill_in("event[description]", with: "Easy 2 mile run along Lake Shore drive")
       # clicks on map to create a start point/route js
       page.select("10", from: "event[pace]")
-      click_button("Create Event")
-      expect(page).to have_content("Error - Event must have a date/time")
+      click_button("Create Run")
+      expect(page).to have_content("Create Run")
     end
 
   end
@@ -104,14 +114,5 @@ describe "edit event" do
   end
 end
 
-describe "delete event" do
-  describe "event#destroy" do
-    it "should allow user to delete an event" do
-      visit event_path
-      click_button("Delete Event")
-      expect(page).to have_content("Event deleted")
-    end
-  end
-end
 
 
