@@ -1,8 +1,10 @@
 $(document).ready(function() {
   if ($('#map-location').length) {
-  var mapLocation = L.mapbox.map('map-location', 'mthoover1.map-nnfbdcbz', {scrollWheelZoom: false})
-  .setView(coords, 16)
+    var mapLocation = L.mapbox.map('map-location', 'mthoover1.map-nnfbdcbz', {scrollWheelZoom: false})
 
-  L.marker(coords).addTo(mapLocation);
+    var circle = L.circle(coords, (search_radius*1609.34)).addTo(mapLocation);
+    mapLocation.fitBounds(circle);
+
+    L.marker(coords).addTo(mapLocation);
   }
 });
