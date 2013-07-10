@@ -126,14 +126,9 @@ table.show-event, table.show-location {
 
 /*       END        */
 
-#map-create, #map-show {
+#map-create, #map-show, #map-location {
 	height: 500px;
 	width: 100%;
-}
-
-#map-location {
-  height: 300px;
-  width: 100%;
 }
 
 .info.leaflet-control {

@@ -1,7 +1,8 @@
 $(document).ready(function() {
   if ($('#map-show').length) {
     var routeLayer = L.layerGroup();
-    var mapShow = L.mapbox.map('map-show', 'mthoover1.map-nnfbdcbz', {layers: routeLayer})
+    var mapShow = L.mapbox.map('map-show', 'mthoover1.map-nnfbdcbz', {layers: routeLayer,
+                                                                      scrollWheelZoom: false})
     mapShow.fitBounds(waypoints);
 
     var route = L.polyline(waypoints, { color: '#dff531' }).addTo(mapShow);
