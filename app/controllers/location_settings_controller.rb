@@ -16,7 +16,6 @@ class LocationSettingsController < ApplicationController
   def create
     @location_setting = LocationSetting.new(params[:location_setting])
     coords = Geocoder.coordinates(params[:location_setting][:address])
-    p coords
     @location_setting.update_attributes(latitude: coords[0],
                                        longitude: coords[1])
 
