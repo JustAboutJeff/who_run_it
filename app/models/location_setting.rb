@@ -7,7 +7,7 @@ class LocationSetting < ActiveRecord::Base
 
   validates_presence_of :name, :notification_frequency, :notification_method, 
                         :pace_min, :pace_max, :distance_min, :distance_max, 
-                        :latitude, :longitude, :search_radius
+                        :latitude, :longitude, :search_radius, :address
   validates_uniqueness_of :name, :scope => :user_id
 
   def email?
