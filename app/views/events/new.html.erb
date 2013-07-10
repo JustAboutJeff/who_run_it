@@ -3,6 +3,7 @@
   <div id="map-create"></div>
   <h2>Create Run</h2>
   <%= form_for @event do |f| %>
+    <%= render partial: 'errors/error_report', locals: {type: @event} %>
     <%= label_tag :title %>
     <%= f.text_field :title, placeholder: 'Title', autofocus: true %>
     <%= label_tag :description %>

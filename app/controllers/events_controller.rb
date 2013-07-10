@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
-      redirect_to profile_path(current_user)
+      render 'new'
     end
   end
 
