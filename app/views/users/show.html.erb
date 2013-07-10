@@ -6,7 +6,7 @@
     </div>
     <div class="large-9 columns ">
       <h3 class="inline-header"><%= @user.username %></h3>
-      <span class="profile-edit"><%= link_to "Edit", edit_user_path(@user), class: 'button secondary tiny' %></span>
+      <div class="profile-edit"><%= link_to "Edit", edit_user_path(@user), class: 'button secondary tiny' %></div>
       <ul class="contact">
         <li><h5 class="subheader inline-header">EMAIL</h5>  <%= @user.email %></li>
         <li><h5 class="subheader inline-header">CELL</h5>  <%= @user.cellphone %></li>
@@ -16,83 +16,92 @@
 
   <hr>
 
-  <% if @user.notified_events.active.any? %>
-      <div class="large-6 columns info-pad">
-        <table>
+  <div>
+    <% if @user.notified_events.active.any? %>
+        <div class="large-6 columns info-pad">
           <h4 class="subheader">My Notified Runs</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Event Title</th>
+                <th>When</th>
+                <th>Pace</th>
+                <th>Distance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @user.notified_events.active.order("start_time").each do |event| %>
+                <tr>
+                  <td><%= link_to event.title, event_path(event) %></td>
+                  <td><%= event.start_time.localtime.strftime("%I:%M%p on %m/%d/%Y") %></td>
+                  <td><%= event.pace %>:00 min/mile</td>
+                  <td><%= event.route.distance %> miles</td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+    <% end %>
+
+    <% if @user.events.active.any? %>
+      <div class="large-6 columns info-pad">
+        <h4 class="subheader">My Created Runs</h4>
+          <table>
           <tr>
             <td>Event Title</td>
             <td>When</td>
             <td>Pace</td>
             <td>Distance</td>
           </tr>
-          <% @user.notified_events.active.order("start_time").each do |event| %>
+          <% @user.events.active.order("start_time").each do |event| %>
             <tr>
               <td><%= link_to event.title, event_path(event) %></td>
               <td><%= event.start_time.localtime.strftime("%I:%M%p on %m/%d/%Y") %></td>
               <td><%= event.pace %>:00 min/mile</td>
               <td><%= event.route.distance %> miles</td>
+              <td>
+                <%= link_to 'Edit', edit_event_path(event), class: 'button tiny secondary' %>
+                <%= link_to 'Delete', event, method: :delete, class: 'button tiny alert' %>
+              </td>
             </tr>
           <% end %>
         </table>
       </div>
-  <% end %>
+    <% end %>
+  </div>
 
-  <% unless @location_settings %>
-    <%= link_to "Add Run Alert", new_location_setting_path, class: "button" %>
-  <% else %>
-    <h4 class="subheader">My Run Alerts</h4>
-    <% @location_settings.each do |location| %>
-      <div class="button-bar">
-        <h5><%= link_to location.name, location_setting_path(location) %><h5>
+  <div>
+    <div class="large-6 columns info-pad">
+      <% unless @location_settings %>
+        <%= link_to "Add Run Alert", new_location_setting_path, class: "button" %>
+      <% else %>
+        <h4 class="subheader">My Run Alerts</h4>
+        <%= link_to "Add Run Alert", new_location_setting_path, class: "button small" %>
+        <% @location_settings.each do |location| %>
+          <div class="button-bar">
+            <h5><%= link_to location.name, location_setting_path(location) %><h5>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <% if @user.routes.saved.any? %>
+      <div class="large-6 columns info-pad">
+        <h4 class="subheader">My Saved Routes</h4>
+          <table>
+          <tr>
+            <td>Name</td>
+            <td>Distance</td>
+          </tr>
+          <% @user.routes.saved.each do |route| %>
+            <tr>
+              <td><%= link_to route.name, route_path(route) %></td>
+              <td><%= route.distance %> miles</td>
+              <td><input id='route-id' type='hidden' value='<%= route.id %>'><div class="button tiny alert delete-route">Delete</div></td>
+            </tr>
+          <% end %>
+        </table>
       </div>
     <% end %>
-    <%= link_to "Add Run Alert", new_location_setting_path, class: "button small" %>
-  <% end %>
-
-  <% if @user.routes.saved.any? %>
-    <div class="large-6 columns info-pad">
-      <table>
-        <h5 class="subheader">My Saved Routes</h5>
-        <tr>
-          <td>Name</td>
-          <td>Distance</td>
-        </tr>
-        <% @user.routes.saved.each do |route| %>
-          <tr>
-            <td><%= link_to route.name, route_path(route) %></td>
-            <td><%= route.distance %> miles</td>
-            <td><input id='route-id' type='hidden' value='<%= route.id %>'><div class="button tiny alert delete-route">Delete</div></td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-  <% end %>
-
-  <% if @user.events.active.any? %>
-    <div class="large-6 columns info-pad">
-      <table>
-        <h5 class="subheader">My Created Runs</h5>
-        <tr>
-          <td>Event Title</td>
-          <td>When</td>
-          <td>Pace</td>
-          <td>Distance</td>
-        </tr>
-        <% @user.events.active.order("start_time").each do |event| %>
-          <tr>
-            <td><%= link_to event.title, event_path(event) %></td>
-            <td><%= event.start_time.localtime.strftime("%I:%M%p on %m/%d/%Y") %></td>
-            <td><%= event.pace %>:00 min/mile</td>
-            <td><%= event.route.distance %> miles</td>
-            <td>
-              <%= link_to 'Edit', edit_event_path(event), class: 'button tiny secondary' %>
-              <%= link_to 'Delete', event, method: :delete, class: 'button tiny alert' %>
-            </td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-  <% end %>
-
+  </div>
 </fieldset>
