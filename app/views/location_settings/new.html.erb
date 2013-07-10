@@ -1,6 +1,7 @@
 <fieldset>
   <h1>Create New Location Setting</h1>
   <%= form_for @location_setting do |f| %>
+    <%= render partial: 'errors/error_report', locals: {type: @location_setting} %>
     <%= label_tag :name %>
     <%= f.text_field :name, placeholder: 'Home' %>
     <%= label_tag :notification_frequency %>

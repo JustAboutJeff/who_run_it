@@ -1,6 +1,7 @@
 <fieldset>
   <h1>Create User</h1>
   <%= form_for @user do |f| %>
+    <%= render partial: 'errors/error_report', locals: {type: @user} %>
     <%= label_tag :username %>
     <%= f.text_field :username, placeholder: 'Jane' %>
     <%= label_tag :cellphone %>

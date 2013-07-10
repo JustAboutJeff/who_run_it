@@ -1,9 +1,10 @@
 <fieldset>
+  <%= render 'layouts/feedback' %>
   <p><img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=150&d=mm"></p>
   <p><%= link_to "Update Profile", edit_user_path(@user), class: 'button secondary tiny' %></p>
   <p>Username: <%= @user.username %></p>
   <p>Email: <%= @user.email %></p>
-  <p>Cellphone: <%= @user.cellphone %></p>
+  <p>Cellphone: <%= @user.display_phone_number %></p>
   <% unless @location_settings %>
     <p>No locations available. <%= link_to "Add a location", new_location_setting_path %></p>
   <% else %>

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       session[:user_id] = @user.id
-      redirect_to profile_path(@user)
+      redirect_to profile_path(@user), notice: "User created!"
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if current_user.id == @user.id && @user.update_attributes(params[:user])
-      redirect_to profile_path(current_user)
+      redirect_to profile_path(current_user), notice: "User updated!"
     else
       render 'edit'
     end
