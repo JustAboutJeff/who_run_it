@@ -1,12 +1,15 @@
 class LocationSettingsController < ApplicationController
 
   def index
-    @location_settings = current_user.location_settings.all
+    @location_settings = current_user.location_settings
   end
 
   def show
-    @location_setting = current_user.location_settings.find(params[:id])
-    @coords = [@location_setting.latitude, @location_setting.longitude]
+    if @location_setting = current_user.location_settings.find_by_id(params[:id])
+      @coords = [@location_setting.latitude, @location_setting.longitude]
+    else
+      redirect_to profile_path(current_user), alert: 'Location not found.'
+    end
   end
 
   def new
