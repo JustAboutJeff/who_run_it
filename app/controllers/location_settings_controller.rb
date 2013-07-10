@@ -17,11 +17,9 @@ class LocationSettingsController < ApplicationController
   end
 
   def create
-    location_setting = LocationSetting.new(params[:location_setting])
-    coords = Geocoder.coordinates(params[:location_setting][:address])
-    location_setting.update_attributes(latitude: coords[0],
-                                       longitude: coords[1])
-    if location_setting.save
+    @location_setting = current_user.location_settings.new(params[:location_setting])
+
+    if @location_setting.save
       redirect_to profile_path(current_user), notice: "Location created!"
     else
       render 'new'
@@ -40,12 +38,6 @@ class LocationSettingsController < ApplicationController
 
   def update
     @location_setting = LocationSetting.find(params[:id])
-
-    if (params[:location_setting][:address] != "")
-      coords = Geocoder.coordinates(params[:location_setting][:address])
-      @location_setting.update_attributes(latitude: coords[0],
-                                          longitude: coords[1])
-    end
 
     if @location_setting.update_attributes(params[:location_setting])
       redirect_to profile_path(current_user), notice: "Location updated!"

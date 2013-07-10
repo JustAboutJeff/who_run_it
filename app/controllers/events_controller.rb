@@ -28,7 +28,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_url_key(params[:id])
-    redirect_to root_url, notice: "Event not found." unless @event
+    redirect_to root_url, alert: "Event not found." unless @event
   end
 
   private
