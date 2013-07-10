@@ -21,6 +21,11 @@ class User < ActiveRecord::Base
   before_save :get_gravatar_hash
   before_save :format_phone_number
 
+  def display_phone_number
+    phone = self.cellphone
+    "(#{phone[1..3]}) #{phone[4..6]}-#{phone[7..10]}" unless phone == ""
+  end
+
   private
 
   def get_gravatar_hash

@@ -1,4 +1,5 @@
 <fieldset>
+  <%= render 'layouts/feedback' %>
   <legend><h3 class="subheader">Dashboard</h3></legend>
   <div class="row">
     <div class="large-3 columns hero">
@@ -30,12 +31,14 @@
             </thead>
             <tbody>
               <% @user.notified_events.active.order("start_time").each do |event| %>
-                <tr>
-                  <td><%= link_to event.title, event_path(event) %></td>
-                  <td><%= event.start_time.localtime.strftime("%I:%M%p on %m/%d/%Y") %></td>
-                  <td><%= event.pace %>:00 min/mile</td>
-                  <td><%= event.route.distance %> miles</td>
-                </tr>
+                <% if event.user_id != current_user.id %>
+                  <tr>
+                    <td><%= link_to event.title, event_path(event) %></td>
+                    <td><%= event.start_time.localtime.strftime("%I:%M%p on %m/%d/%Y") %></td>
+                    <td><%= event.pace %>:00 min/mile</td>
+                    <td><%= event.route.distance %> miles</td>
+                  </tr>
+                <% end %>
               <% end %>
             </tbody>
           </table>
