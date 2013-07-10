@@ -10,7 +10,7 @@
     <p>Locations:</p>
     <% @location_settings.each do |location| %>
       <div class="button-bar">
-      <h5><%= link_to location.name, location_setting_path(location)%></h5><%= link_to "Edit", edit_location_setting_path(location), class: 'button tiny' %><%= link_to 'Delete', location, method: :delete, class: 'button tiny' %>
+      <h5><%= link_to location.name, location_setting_path(location)%></h5><%= link_to "Edit", edit_location_setting_path(location), class: 'button tiny' %><%= link_to 'Delete', location, method: :delete, class: 'button tiny', confirm: "Are you sure?" %>
       </div>
     <% end %>
     <%= link_to "Add a location", new_location_setting_path %>
