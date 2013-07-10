@@ -31,6 +31,12 @@ class EventsController < ApplicationController
     redirect_to root_url, alert: "Event not found." unless @event
   end
 
+  def destroy
+    event = Event.find_by_url_key(params[:id])
+    event.destroy
+    redirect_to profile_path(current_user), alert: "Event deleted!"
+  end
+
   private
 
   def find_or_create_route

@@ -9,6 +9,9 @@
       <td><%= @route.distance %> miles</td>
     </tr>
   </table>
+
+  <%= link_to "Delete", remove_route_path(@route), class: 'button alert tiny' %>
+  
   <div id="map-show" class="dark"></div>
   
 </fieldset>

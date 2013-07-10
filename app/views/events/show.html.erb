@@ -6,6 +6,8 @@
   <p>
   <img class='circle icon-face' src="http://www.gravatar.com/avatar/<%= @event.user.gravatar_hash %>?s=60&d=mm"> Run with: <b><%= @event.user.username %></b>
   </p>
+
+  <%= link_to "Delete", @event, method: :delete, class: 'button alert tiny' %>
  
   <% if current_user.notifications.find_by_event_id(@event.id) %>
     <form id="commit-toggle">
