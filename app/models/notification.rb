@@ -1,6 +1,6 @@
 class Notification < ActiveRecord::Base
   attr_accessible :user_id, :event_id, :committed
-  
+
   belongs_to :user
   belongs_to :event
 
