@@ -13,7 +13,17 @@
  *= require foundation_and_overrides
  */
 
- h3.profile-details {
+ div.info-pad {
+  background-color: rgba(0,0,0,0.2);
+ }
+
+ ul.contact {
+  margin-left: 2em;
+  li > h5 {
+    margin: 0 0 0 0;
+  }
+ }
+ .inline-header {
   display: inline-block;
   margin-bottom: 0.25em;
  }
