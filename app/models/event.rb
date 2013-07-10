@@ -1,5 +1,8 @@
 class Event < ActiveRecord::Base
-  attr_accessible :user_id, :title, :description, :route_id, :start_time, :pace, :url_key
+  attr_accessible :user_id, :title, :description, :route_id, :start_time, 
+                  :pace, :url_key, :hour, :minute, :ampm
+
+  attr_accessor :hour, :minute, :ampm, :do_not_validate_route
 
   belongs_to :user
   belongs_to :route
@@ -7,31 +10,18 @@ class Event < ActiveRecord::Base
   has_many   :notifications
   has_many   :users, :through => :notifications
 
-  validates_presence_of :user_id, :title, :route_id, :start_time, :pace
+  validates_presence_of :user_id, :title, :start_time, :pace
+  validates_presence_of :route_id, :unless => :do_not_validate_route
   validates_length_of   :title, maximum: 30
   validates_length_of   :description, maximum: 100
+
+  before_validation :generate_time
 
   before_save  :generate_url_key
   after_create :send_notifications
 
   scope :active, -> { where("start_time > ?", Time.now.utc) }
 
-  def self.generate_time(hr, min, ampm)
-    time = Time.now
-    hour = hr.to_i
-    minute = min.to_i
-    if (ampm == "PM") && (hour != 12)
-      hour += 12
-    end
-    p hour
-    if hour > time.hour
-      Time.parse("#{hour}:#{minute}:00")
-    elsif (hour == time.hour) && (minute > time.min)
-      Time.parse("#{hour}:#{minute}:00")
-    else
-      Time.parse("#{time.year}-#{time.month}-#{time.day+1} #{hour}:#{minute}:00")
-    end
-  end
 
   def create_notifications
     event_coords = [self.waypoints.first.latitude, self.waypoints.first.longitude]
@@ -68,12 +58,29 @@ class Event < ActiveRecord::Base
   end
 
   def to_param
-  	url_key
+    url_key
   end
+
 
   private
 
   def generate_url_key
-  	self.url_key = SecureRandom.urlsafe_base64(5)
+    self.url_key = SecureRandom.urlsafe_base64(5)
+  end
+
+  def generate_time
+    time = Time.now
+    hour = self.hour.to_i
+    minute = self.minute.to_i
+    if (self.ampm == "PM") && (hour != 12)
+      hour += 12
+    end
+    if hour > time.hour
+      self.start_time = Time.parse("#{hour}:#{minute}:00")
+    elsif (hour == time.hour) && (minute > time.min)
+      self.start_time = Time.parse("#{hour}:#{minute}:00")
+    else
+      self.start_time = Time.parse("#{time.year}-#{time.month}-#{time.day+1} #{hour}:#{minute}:00")
+    end
   end
 end

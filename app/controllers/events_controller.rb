@@ -1,23 +1,26 @@
-class EventsController < ApplicationController
-
+class EventsController < ApplicationController  
   def new
     @event = Event.new
   end
 
   def create
-    @route = find_or_create_route
-
-    time = Event.generate_time(params[:hour], params[:minute], params[:ampm])
-
     @event = Event.new(user_id: current_user.id,
                        title: params[:event][:title],
                        description: params[:event][:description],
-                       route_id: @route.id,
-                       start_time: time,
+                       hour: params[:hour],
+                       minute: params[:minute],
+                       ampm: params[:ampm],
                        pace: params[:event][:pace])
+    @event.do_not_validate_route = true
 
-    if @event.save
-      redirect_to event_path(@event)
+    if @event.valid?
+      @event.route = find_or_create_route
+      @event.do_not_validate_route = false
+      if @event.save
+        redirect_to event_path(@event)
+      else
+        render 'new'
+      end
     else
       render 'new'
     end
@@ -25,17 +28,18 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_url_key(params[:id])
-    redirect_to root_url, notice: "Event not found." unless @event
+    redirect_to root_url, alert: "Event not found." unless @event
   end
 
-  protected
+  private
 
   def find_or_create_route
     if params[:route] && (params[:waypoints] == "")
       Route.find(params[:route])
     else
-      miles = (params[:distance].to_f*0.000621371).round(2)
-      route = Route.create(name: params[:event][:title], distance: miles)
+      route = Route.create name: params[:event][:title], 
+                           distance: meters_to_miles(params[:distance])
+
       create_waypoints(route)
       route
     end
