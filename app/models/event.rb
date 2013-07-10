@@ -44,7 +44,7 @@ class Event < ActiveRecord::Base
     end
 
     users_for_email.delete(self.user_id)
-    users_for_text.delete(self.user_id)
+    users_for_sms.delete(self.user_id)
     {email: users_for_email.uniq, sms: users_for_sms.uniq, event_id: self.id}
   end
 

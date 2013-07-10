@@ -13,6 +13,6 @@ class RoutesController < ApplicationController
   def remove
     route = Route.find_by_id(params[:id])
     route.update_attributes(saved: 0)
-    render :nothing => true
+    redirect_to profile_path(current_user), alert: "Route deleted!"
   end
 end
