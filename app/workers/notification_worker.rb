@@ -13,7 +13,7 @@ class NotificationWorker
     end
 
     # Contact via SMS
-    notification_queue["text"].each do |user_id|
+    notification_queue["sms"].each do |user_id|
       user = User.find_by_id(user_id)
       my_sms_engine = SmsEngine.new(user, event)
       my_sms_engine.send_sms

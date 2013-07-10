@@ -52,7 +52,7 @@ class Event < ActiveRecord::Base
       Notification.create(user_id: user_id, event_id: self.id, committed: 0)
     end
 
-    {email: users_for_email.uniq, text: users_for_sms.uniq, event_id: self.id}
+    {email: users_for_email.uniq, sms: users_for_sms.uniq, event_id: self.id}
   end
 
   def send_notifications
