@@ -1,13 +1,17 @@
 <fieldset>
+  <legend><h3 class="subheader">1. Build A Run</h3></legend>
+  <div id="map-create" class="dark"></div>
+  <span class="button alert small" id="reset">Reset Run</span>
+</fieldset>
+<fieldset>
   <%= render 'layouts/feedback' %>
-  <div id="map-create"></div>
-  <h2>Create Run</h2>
+  <legend><h3 class="subheader">2. Get Specific</h3></legend>
   <%= form_for @event do |f| %>
     <%= render partial: 'errors/error_report', locals: {type: @event} %>
     <%= label_tag :title %>
-    <%= f.text_field :title, placeholder: 'Title', autofocus: true %>
+    <%= f.text_field :title, placeholder: 'Downtown 5K'%>
     <%= label_tag :description %>
-    <%= f.text_field :description, placeholder: 'Description' %>
+    <%= f.text_field :description, placeholder: 'Around the Loop and back' %>
     <%= label_tag :When %>
     <%= select_tag :hour, options_for_select([["hr", nil],1,2,3,4,5,6,7,8,9,10,11,12]) %>
     <%= select_tag :minute, options_for_select([["min", nil],["00", 0],15,30,45]) %>
@@ -20,15 +24,16 @@
     <% end %>
     <p>
       <% if current_user %>
-        <%= f.submit 'Create Run', class: 'button' %>
+        <%= f.submit 'Submit', class: 'button' %>
       <% else %>
-        <div><%= link_to "Signup For Who Run It", users_path, class: "button alert" %></div>
+        <div><%= link_to "Signup For WHO RUN IT", users_path, class: "button alert" %></div>
       <% end %>
       <%= hidden_field_tag :waypoints %>
       <%= hidden_field_tag :distance %>
     </p>
   <% end %>
+</fieldset>
 
-  <div class="button alert small" id="reset">Reset Route</div>
-  
+<fieldset>
+  <legend><h3 class="subheader">3. Share</h3></legend>
 </fieldset>

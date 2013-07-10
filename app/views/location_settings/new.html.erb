@@ -1,9 +1,9 @@
 <fieldset>
-  <h1>Create New Location Setting</h1>
+  <legend><h3 class="subheader">Build An Event Alert</h3></legend>
   <%= form_for @location_setting do |f| %>
     <%= render partial: 'errors/error_report', locals: {type: @location_setting} %>
     <%= label_tag :name %>
-    <%= f.text_field :name, placeholder: 'Home' %>
+    <%= f.text_field :name, placeholder: 'Home', autofocus: true %>
     <%= label_tag :notification_frequency %>
     <%= f.select :notification_frequency, options_for_select([['Within 30 Minutes', 1], ['Within 1 Hour', 2], ['Within 2 Hours', 3]]) %>
     <%= label_tag :notification_method %>
@@ -19,6 +19,6 @@
     <%= label_tag :search_radius %>
     <%= f.text_field :search_radius, placeholder: 'Search Radius (Miles)' %>
     <input type="hidden" value="<%= current_user.id %>" name="location_setting[user_id]" >
-    <%= f.submit 'Add Setting', class: 'button' %>
+    <%= f.submit 'Submit', class: 'button' %>
   <% end %>
 </fieldset>

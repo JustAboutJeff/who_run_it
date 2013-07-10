@@ -13,6 +13,28 @@
  *= require foundation_and_overrides
  */
 
+ h3.profile-details {
+  display: inline-block;
+  margin-bottom: 0.25em;
+ }
+
+ span.profile-edit {
+  margin-left: 0.75em;
+ }
+
+
+ div.profile-details {
+  display: inline-block;
+ }
+
+ div.profile-photo {
+  display: inline-block;
+ }
+
+ span#reset {
+  margin: 1em;
+ }
+
  .hero {
   text-align: center;
   h1 {
@@ -69,7 +91,7 @@ div.sticky {
 
 }
 
-nav img.circle {
+img.circle.icon-face {
   border: 0.18em solid #bbb;
   -moz-box-shadow:    0px 0px 0px 0px rgba(0,0,0,0);
   -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);

@@ -1,6 +1,7 @@
 <fieldset>
-  <h2><%= @location_setting.name %></h2>
-
+  <h3 class="subheader"><%= @location_setting.name %></h3>
+  <%= link_to "Edit", edit_location_setting_path(@location_setting), class: 'button' %>
+  <%= link_to 'Delete', @location_location, method: :delete, class: 'button', confirm: "Are you sure?" %>
   <table class='show-location'>
     <tr>
       <td>Open Times:</td>
@@ -29,7 +30,7 @@
       <td><%= @location_setting.search_radius %> mi.</td>
     </tr>
   </table>
-  <div id="map-location"></div>
+  <div id="map-location" class="dark"></div>
 </fieldset>
 
 <script type="text/javascript">

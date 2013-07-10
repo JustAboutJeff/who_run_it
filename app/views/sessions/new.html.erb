@@ -1,10 +1,10 @@
 <fieldset>
-  <h1>Login</h1>
+  <legend><h3 class="subheader">Sign In</h3></legend>
 	<%= form_for :session do |f| %>
     <%= label_tag :username %>
-	  <%= f.text_field :username, placeholder: 'Username' %>
+	  <%= f.text_field :username, placeholder: 'Jane', autofocus: true  %>
     <%= label_tag :password %>
 	  <%= f.password_field :password, placeholder: 'Password' %>
-	  <%= f.submit 'Login', class: 'button' %>
+	  <%= f.submit 'Submit', class: 'button' %>
 	<% end %>
 </fieldset>

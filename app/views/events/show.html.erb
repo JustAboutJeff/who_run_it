@@ -1,9 +1,11 @@
 <fieldset>
-  <h1><%= @event.title %></h1>
+  <h3 class="subheader"><%= @event.title %></h3>
   <% if @event.description != "" %>
     <p id='description'><%= @event.description %></p>
   <% end %>
-  <p>Organizer: <b><%= @event.user.username %></b> <span><img class='circle' src="http://www.gravatar.com/avatar/<%= @event.user.gravatar_hash %>?s=30&d=mm"></span></p>
+  <p>
+  <img class='circle icon-face' src="http://www.gravatar.com/avatar/<%= @event.user.gravatar_hash %>?s=60&d=mm"> Run with: <b><%= @event.user.username %></b>
+  </p>
  
   <% if current_user.notifications.find_by_event_id(@event.id) %>
     <form id="commit-toggle">
@@ -47,13 +49,13 @@
       <td><b><%= (@event.route.distance * @event.pace).round(0) %> minutes</b></td>
     </tr>
   </table>
-  <div id="map-show"></div>
+  <div id="map-show" class="dark"></div>
 
   <div id="committed-runners">
     <h5>Committed Runners</h5>
     <% @event.users.each do |user| %>
       <% if user.notifications.find_by_event_id(@event.id).committed == 1 %>
-        <img id="user-<%= user.id %>"class='circle' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=30&d=mm">
+        <img id="user-<%= user.id %>"class='circle icon-face' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=60&d=mm">
       <% end %>
     <% end %>
   </div>
@@ -62,7 +64,7 @@
     <h5>Notified Runners</h5>
     <% @event.users.each do |user| %>
       <% if user.notifications.find_by_event_id(@event.id).committed == 0 %>
-        <img id="user-<%= user.id %>"class='circle' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=30&d=mm">
+        <img id="user-<%= user.id %>"class='circle icon-face' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=60&d=mm">
       <% end %>
     <% end %>
   </div>
