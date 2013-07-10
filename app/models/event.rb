@@ -1,15 +1,25 @@
 class Event < ActiveRecord::Base
   attr_accessible :user_id, :title, :description, :route_id, :start_time, :pace, :url_key
 
+  # attr_accessor :hour, :minute, :ampm, :do_not_validate_route
+
+
+  attr_accessor :whatever
+
+  @event.whatever =
+
   belongs_to :user
   belongs_to :route
   has_many   :waypoints, :through => :route
   has_many   :notifications
   has_many   :users, :through => :notifications
 
-  validates_presence_of :user_id, :title, :route_id, :start_time, :pace
+  validates_presence_of :user_id, :title, :start_time, :pace
+  validates_presence_of :route_id, :unless => :do_not_validate_route
   validates_length_of   :title, maximum: 30
   validates_length_of   :description, maximum: 100
+
+  # before_validation :generate_time
 
   before_save  :generate_url_key
   after_create :send_notifications
