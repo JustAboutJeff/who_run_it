@@ -23,7 +23,7 @@ $('input[name=committed-switch]').click(function() {
   data = {id: $('#notification-id').val()};
   url = '/commit';
 
-  imgTemplate = "<img id='user-" + userId + "'class='circle' src='http://www.gravatar.com/avatar/" + userAvatar + "?s=30&d=mm'>"
+  imgTemplate = "<img id='user-" + userId + "'class='circle icon-face' src='http://www.gravatar.com/avatar/" + userAvatar + "?s=60&d=mm'>"
 
   $.post(url, data, function(response) {
     if (response === 1) {

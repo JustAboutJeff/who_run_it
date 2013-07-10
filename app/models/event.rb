@@ -43,6 +43,8 @@ class Event < ActiveRecord::Base
       Notification.create(user_id: user_id, event_id: self.id, committed: committed_state)
     end
 
+    users_for_email.delete(self.user_id)
+    users_for_text.delete(self.user_id)
     {email: users_for_email.uniq, sms: users_for_sms.uniq, event_id: self.id}
   end
 
