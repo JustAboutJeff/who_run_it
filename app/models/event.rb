@@ -11,7 +11,8 @@ class Event < ActiveRecord::Base
   validates_length_of   :title, maximum: 30
   validates_length_of   :description, maximum: 100
 
-  before_save :generate_url_key
+  before_save  :generate_url_key
+  after_create :send_notifications
 
   scope :active, -> { where("start_time > ?", Time.now.utc) }
 
@@ -35,35 +36,35 @@ class Event < ActiveRecord::Base
   def create_notifications
     event_coords = [self.waypoints.first.latitude, self.waypoints.first.longitude]
     users_for_email = []
-    users_for_text = []
+    users_for_sms = []
 
-    User.all.each do |user|
-      sent_email = false
-      sent_text = false
-      user.location_settings.each do |location|
-        if (self.pace >= location.pace_min) && (self.pace <= location.pace_max)
-          if (self.route.distance >= location.distance_min) && (self.route.distance <= location.distance_max)
-            location_coords = [location.latitude, location.longitude]
-            if Geocoder::Calculations.distance_between(event_coords, location_coords) <= 10
-              if (location.notification_method == "2") || (location.notification_method == "4")
-                break if sent_email == true
-                users_for_email << user.id
-                sent_email = true
-              end
-
-              if (location.notification_method == "3") || (location.notification_method == "4")
-                break if sent_text == true
-                users_for_text << user.id
-                sent_text = true
-              end
-            end
-          end
-        end
+    LocationSetting.where("pace_min <= ? AND pace_max >= ?", self.pace, self.pace).
+                    where("distance_min <= ? AND distance_max >= ?", self.route.distance, self.route.distance).
+                    each do |location_setting|
+      location_coords = [location_setting.latitude, location_setting.longitude]
+      if Geocoder::Calculations.distance_between(event_coords, location_coords) <= 5
+        users_for_email << location_setting.user_id if location_setting.email?
+        users_for_sms << location_setting.user_id if location_setting.sms?
       end
-      Notification.create(user_id: user.id, event_id: self.id, committed: 0) if ((sent_email == true) || (sent_text == true))
     end
-    {email: users_for_email, text: users_for_text, event_id: self.id}
-  end 
+
+    (users_for_email + users_for_sms).uniq.each do |user_id|
+      Notification.create(user_id: user_id, event_id: self.id, committed: 0)
+    end
+
+    {email: users_for_email.uniq, text: users_for_sms.uniq, event_id: self.id}
+  end
+
+  def send_notifications
+    notification_recipients = self.create_notifications
+    NotificationWorker.perform_async(notification_recipients)
+  end
+
+  def waypoint_coordinates
+    self.waypoints.map do |waypoint|
+      [waypoint.latitude, waypoint.longitude]
+    end
+  end
 
   def to_param
   	url_key
