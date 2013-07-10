@@ -1,14 +1,15 @@
 <fieldset>
-  <h1>Update User Profile</h1>
+  <legend><h3 class="subheader">Edit Profile</h3></legend>
   <%= form_for @user do |f| %>
+    <%= render partial: 'errors/error_report', locals: {type: @user} %>
     <%= label_tag :username %>
-    <%= f.text_field :username, placeholder: 'Jane' %>
+    <%= f.text_field :username, placeholder: 'Jane', autofocus: true %>
     <%= label_tag :cellphone %>
     <%= f.telephone_field :cellphone, placeholder: '555-555-5555' %>
     <%= label_tag :email %>
     <%= f.email_field :email, placeholder: 'JaneDoe@example.com' %>
     <%= label_tag :password %>
-    <%= f.password_field :password %>
-    <%= f.submit 'Update', class: 'button' %>
+    <%= f.password_field :password, placeholder: 'Password'  %>
+    <%= f.submit 'Submit', class: 'button' %>
   <% end %>
 </fieldset>

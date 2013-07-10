@@ -1,24 +1,34 @@
 <fieldset>
-  <p><img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=150&d=mm"></p>
-  <p><%= link_to "Update Profile", edit_user_path(@user), class: 'button secondary tiny' %></p>
-  <p>Username: <%= @user.username %></p>
-  <p>Email: <%= @user.email %></p>
-  <p>Cellphone: <%= @user.cellphone %></p>
+  <%= render 'layouts/feedback' %>
+  <legend><h3 class="subheader">Dashboard</h3></legend>
+  <div class="row">
+    <div class="large-3 columns hero">
+      <img class='circle' src="http://www.gravatar.com/avatar/<%= current_user.gravatar_hash %>?s=150&d=mm">
+    </div>
+    <div class="large-9 columns ">
+      <h3 class="profile-details"><%= @user.username %></h3>
+      <span class="profile-edit"><%= link_to "Edit", edit_user_path(@user), class: 'button secondary tiny' %></span>
+      <ul class="contact">
+        <li><strong>EMAIL:</strong> <%= @user.email %></li>
+        <li><strong>CELL:</strong> <%= @user.cellphone %></li>
+      </ul>
+    </div>
+  </div>
   <% unless @location_settings %>
-    <p>No locations available. <%= link_to "Add a location", new_location_setting_path %></p>
+    <%= link_to "Add Run Alert", new_location_setting_path, class: "button" %>
   <% else %>
-    <p>Locations:</p>
+    <h4 class="subheader">My Runs:</h4>
     <% @location_settings.each do |location| %>
       <div class="button-bar">
-      <h5><%= link_to location.name, location_setting_path(location)%></h5><%= link_to "Edit", edit_location_setting_path(location), class: 'button tiny' %><%= link_to 'Delete', location, method: :delete, class: 'button tiny' %>
+        <h5><%= link_to location.name, location_setting_path(location) %><h5>
       </div>
     <% end %>
-    <%= link_to "Add a location", new_location_setting_path %>
+    <%= link_to "Add Run Alert", new_location_setting_path, class: "button" %>
   <% end %>
 
   <% if @user.routes.saved.any? %>
     <table>
-      <h5>Saved Routes</h5>
+      <h5>Saved Runs</h5>
       <tr>
         <td>Name</td>
         <td>Distance</td>
@@ -35,7 +45,7 @@
 
   <% if @user.notified_events.active.any? %>
     <table>
-      <h5>Notified Events</h5>
+      <h5>Notified Runs</h5>
       <tr>
         <td>Event Title</td>
         <td>When</td>
@@ -55,7 +65,7 @@
 
   <% if @user.events.active.any? %>
     <table>
-      <h5>Created Events</h5>
+      <h5>Created Runs</h5>
       <tr>
         <td>Event Title</td>
         <td>When</td>

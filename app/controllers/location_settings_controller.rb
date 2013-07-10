@@ -19,8 +19,9 @@ class LocationSettingsController < ApplicationController
     p coords
     @location_setting.update_attributes(latitude: coords[0],
                                        longitude: coords[1])
-    if @location_setting.save
-      redirect_to profile_path(current_user)
+
+    if location_setting.save
+      redirect_to profile_path(current_user), notice: "Location created!"
     else
       render 'new'
     end
@@ -29,7 +30,7 @@ class LocationSettingsController < ApplicationController
   def destroy
     location_settings = LocationSetting.find(params[:id])
     location_settings.destroy
-    redirect_to profile_path(current_user)
+    redirect_to profile_path(current_user), alert: "Location deleted!"
   end
 
   def edit
@@ -46,7 +47,7 @@ class LocationSettingsController < ApplicationController
     end
 
     if @location_setting.update_attributes(params[:location_setting])
-      redirect_to profile_path(current_user)
+      redirect_to profile_path(current_user), notice: "Location updated!"
     else
       render 'edit'
     end

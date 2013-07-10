@@ -1,9 +1,15 @@
 class LocationSetting < ActiveRecord::Base
-  attr_accessible :user_id, :name, :notification_frequency, :notification_method, :pace_min, :pace_max, :distance_min, :distance_max, :latitude, :longitude, :address
+  attr_accessible :user_id, :name, :notification_frequency, :notification_method,
+                  :pace_min, :pace_max, :distance_min, :distance_max, :latitude,
+                  :longitude, :address, :search_radius
 
   belongs_to :user
 
-  validates_presence_of :name, :notification_frequency, :notification_method, :pace_min, :pace_max, :distance_min, :distance_max, :latitude, :longitude, :address
+
+  validates_presence_of :name, :notification_frequency, :notification_method,
+                        :pace_min, :pace_max, :distance_min, :distance_max,
+                        :latitude, :longitude, :search_radius, :address
+
   validates_uniqueness_of :name, :scope => :user_id
 
   def email?
