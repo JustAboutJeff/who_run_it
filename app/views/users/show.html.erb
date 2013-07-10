@@ -16,7 +16,6 @@
 
   <hr>
 
-  <div>
     <% if @user.notified_events.active.any? %>
         <div class="large-6 columns info-pad">
           <h4 class="subheader">My Notified Runs</h4>
@@ -68,9 +67,7 @@
         </table>
       </div>
     <% end %>
-  </div>
 
-  <div>
     <div class="large-6 columns info-pad">
       <% unless @location_settings %>
         <%= link_to "Add Run Alert", new_location_setting_path, class: "button" %>
@@ -103,5 +100,5 @@
         </table>
       </div>
     <% end %>
-  </div>
+
 </fieldset>
