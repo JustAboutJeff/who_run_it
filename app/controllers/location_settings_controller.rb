@@ -20,7 +20,7 @@ class LocationSettingsController < ApplicationController
     @location_setting = current_user.location_settings.new(params[:location_setting])
 
     if @location_setting.save
-      redirect_to profile_path(current_user), notice: "Location created!"
+      redirect_to location_setting_path(@location_setting), notice: "Location created!"
     else
       render 'new'
     end
@@ -40,7 +40,7 @@ class LocationSettingsController < ApplicationController
     @location_setting = LocationSetting.find(params[:id])
 
     if @location_setting.update_attributes(params[:location_setting])
-      redirect_to profile_path(current_user), notice: "Location updated!"
+      redirect_to location_setting_path(@location_setting), notice: "Location updated!"
     else
       render 'edit'
     end
