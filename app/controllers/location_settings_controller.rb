@@ -1,9 +1,5 @@
 class LocationSettingsController < ApplicationController
 
-  def index
-    @location_settings = current_user.location_settings
-  end
-
   def show
     if @location_setting = current_user.location_settings.find_by_id(params[:id])
       @coords = [@location_setting.latitude, @location_setting.longitude]

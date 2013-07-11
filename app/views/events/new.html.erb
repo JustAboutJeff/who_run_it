@@ -45,7 +45,7 @@
     <% if current_user %>
       <%= f.submit 'Share Run!', class: 'button large expand' %>
     <% else %>
-      <div><%= link_to "Sign Up!", new_user_path, class: "button large expand" %></div>
+      <%= link_to "Sign Up!", new_user_path, class: "button large expand" %>
     <% end %>
     <%= hidden_field_tag :waypoints %>
     <%= hidden_field_tag :distance %>

@@ -42,6 +42,8 @@ class EventsController < ApplicationController
   def find_or_create_route
     if params[:route] && (params[:waypoints] == "")
       Route.find(params[:route])
+    elsif params[:waypoints] == ""
+      nil
     else
       route = Route.create name: params[:event][:title], 
                            distance: meters_to_miles(params[:distance])

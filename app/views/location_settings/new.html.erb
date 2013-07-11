@@ -5,10 +5,10 @@
     <%= label_tag :name %>
     <%= f.text_field :name, placeholder: 'Home', autofocus: true %>
     <%= label_tag :notification_method %>
-    <%= f.select :notification_method, options_for_select([['None', 1],['Email',2],['Text Message',3],['Both',4]]) %>
+    <%= f.select :notification_method, options_for_select([['None', 1],['Email',2],['Text Message',3],['Email & Text',4]]) %>
     <%= label_tag :pace %>
-    <%= f.select :pace_min, options_for_select([['None', 0],['5:00',5],['6:00',6],['7:00',7],['8:00',8],['9:00',9],['10:00',10],['11:00',11],['12:00',12]]) %>
-    <%= f.select :pace_max, options_for_select([['None', 12],['5:00',5],['6:00',6],['7:00',7],['8:00',8],['9:00',9],['10:00',10],['11:00',11],['12:00',12]]) %>
+    <%= f.select :pace_min, options_for_select([['None', 0],["5:00/mile",5],["6:00/mile",6],["7:00/mile",7],["8:00/mile",8],["9:00/mile",9],["10:00/mile",10],["11:00/mile",11],["12:00/mile",12],["13:00/mile",13],["14:00/mile",14],["15:00/mile",15]]) %>
+    <%= f.select :pace_max, options_for_select([['None', 99],["5:00/mile",5],["6:00/mile",6],["7:00/mile",7],["8:00/mile",8],["9:00/mile",9],["10:00/mile",10],["11:00/mile",11],["12:00/mile",12],["13:00/mile",13],["14:00/mile",14],["15:00/mile",15]]) %>
     <%= label_tag :distance %>
     <%= f.select :distance_min, options_for_select([['None', 0],['1 mile',1],['2 miles',2],['3 miles',3],['4 miles',4],['5 miles',5],['6 miles',6],['7 miles',7],['8 miles',8],['9 miles',9],['10 miles',10],['11 miles',11],['12 miles',12],['13 miles',13],['14 miles',14],['15 miles',15],['16 miles',16],['17 miles',17],['18 miles',18],['19 miles',19],['20 miles',20]]) %>
     <%= f.select :distance_max, options_for_select([['None', 20],['1 mile',1],['2 miles',2],['3 miles',3],['4 miles',4],['5 miles',5],['6 miles',6],['7 miles',7],['8 miles',8],['9 miles',9],['10 miles',10],['11 miles',11],['12 miles',12],['13 miles',13],['14 miles',14],['15 miles',15],['16 miles',16],['17 miles',17],['18 miles',18],['19 miles',19],['20 miles',20]]) %>

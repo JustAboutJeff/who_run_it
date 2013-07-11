@@ -16,13 +16,14 @@
     <thead>
     <tbody>
       <tr>
-        <td><%= @location_setting.notification_method %></td>
-        <td>Min: <%= @location_setting.pace_min %></td>
-        <td>Max: <%= @location_setting.pace_max %></td>
-        <td>Min: <%= @location_setting.distance_min %></td>
-        <td>Max: <%= @location_setting.distance_max %></td>
+        <td><%= @location_setting.notification_frequency %></td>
+        <td><%= notification_method(@location_setting.notification_method) %></td>
+        <td><%= @location_setting.pace_min %>:00/mile</td>
+        <td><%= @location_setting.pace_max %>:00/mile</td>
+        <td><%= pluralize(@location_setting.distance_min, "mile") %></td>
+        <td><%= pluralize(@location_setting.distance_max, "mile") %></td>
         <td><%= @location_setting.address %></td>
-        <td><%= @location_setting.search_radius %> mi.</td>
+        <td><%= pluralize(@location_setting.search_radius, "mile") %></td>
       </tr>
     </tbody>
   </table>
