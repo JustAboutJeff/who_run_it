@@ -22,7 +22,6 @@ class Event < ActiveRecord::Base
 
   scope :active, -> { where("start_time > ?", Time.now.utc) }
 
-
   def create_notifications
     event_coords = [self.waypoints.first.latitude, self.waypoints.first.longitude]
     users_for_email = []
@@ -63,7 +62,6 @@ class Event < ActiveRecord::Base
   def to_param
     url_key
   end
-
 
   private
 
