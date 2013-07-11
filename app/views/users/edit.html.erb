@@ -3,7 +3,7 @@
   <%= form_for @user do |f| %>
     <%= render partial: 'errors/error_report', locals: {type: @user} %>
     <%= label_tag :username %>
-    <%= f.text_field :username, placeholder: 'Jane', autofocus: true %>
+    <%= f.text_field :username, placeholder: 'Jane' %>
     <%= label_tag :cellphone %>
     <%= f.telephone_field :cellphone, placeholder: '555-555-5555' %>
     <%= label_tag :email %>

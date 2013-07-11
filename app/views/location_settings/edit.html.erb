@@ -3,7 +3,7 @@
   <%= form_for @location_setting do |f| %>
     <%= render partial: 'errors/error_report', locals: {type: @location_setting} %>
     <%= label_tag :name %>
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.text_field :name %>
     <%= label_tag :notification_frequency %>
     <%= f.select :notification_frequency, [['Within 30 Minutes', 1], ['Within 1 Hour', 2], ['Within 2 Hours', 3]] %>
     <%= label_tag :notification_method %>
