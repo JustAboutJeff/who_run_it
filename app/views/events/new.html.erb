@@ -1,39 +1,55 @@
 <fieldset>
   <%= render 'layouts/feedback' %>
   <legend><h3 class="subheader">1. Build A Run</h3></legend>
-  <div id="map-create" class="dark"></div>
-  <span class="button alert small" id="reset">Reset Run</span>
-</fieldset>
-<fieldset>
-  <legend><h3 class="subheader">2. Get Specific</h3></legend>
-  <%= form_for @event do |f| %>
-    <%= render partial: 'errors/error_report', locals: {type: @event} %>
-    <%= label_tag :title %>
-    <%= f.text_field :title, placeholder: 'Downtown 5K'%>
-    <%= label_tag :description %>
-    <%= f.text_field :description, placeholder: 'Around the Loop and back' %>
-    <%= label_tag :When %>
-    <%= select_tag :hour, options_for_select([["hr", nil],1,2,3,4,5,6,7,8,9,10,11,12]) %>
-    <%= select_tag :minute, options_for_select([["min", nil],["00", 0],15,30,45]) %>
-    <%= select_tag :ampm, options_for_select([["am/pm", nil], "AM","PM"]) %>
-    <%= label_tag :pace %>
-    <%= f.select :pace, options_for_select([["5:00/mile",5],["6:00/mile",6],["7:00/mile",7],["8:00/mile",8],["9:00/mile",9],["10:00/mile",10],["11:00/mile",11],["12:00/mile",12],["13:00/mile",13],["14:00/mile",14],["15:00/mile",15]]) %>
-    <% if current_user && current_user.routes.saved.any? %>
-      <%= label_tag :route %>
-      <%= select_tag :route, options_from_collection_for_select(current_user.routes.saved, 'id', 'name', 0) %>
-    <% end %>
-    <p>
-      <% if current_user %>
-        <%= f.submit 'Submit', class: 'button' %>
-      <% else %>
-        <div><%= link_to "Signup For WHO RUN IT", new_user_path, class: "button alert" %></div>
-      <% end %>
-      <%= hidden_field_tag :waypoints %>
-      <%= hidden_field_tag :distance %>
-    </p>
-  <% end %>
+  <div id="map-create"><span class="button secondary small" id="reset">Reset</span></div>
 </fieldset>
 
 <fieldset>
-  <legend><h3 class="subheader">3. Share</h3></legend>
+<legend><h3 class="subheader">2. Get Specific</h3></legend>
+<%= form_for @event do |f| %>
+    <%= render partial: 'errors/error_report', locals: {type: @event} %>
+    <%= label_tag :title %>
+    <%= f.text_field :title, placeholder: 'Enter a title here'%>
+    <%= label_tag :description %>
+    <%= f.text_field :description, placeholder: 'Enter a description here' %>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= label_tag :When %>
+        <%= select_tag :hour, options_for_select([["hr", nil],1,2,3,4,5,6,7,8,9,10,11,12]) %>
+        <h4 class="subheader inline-header" id="time-colon">:</h4>
+        <%= select_tag :minute, options_for_select([["min", nil],["00", 0],15,30,45]) %>
+        <%= select_tag :ampm, options_for_select([["am/pm", nil], "AM","PM"]) %>
+      </div>
+
+      <div class="large-2 columns">
+        <%= label_tag :Pace %>
+        <%= f.select :pace, options_for_select([["5:00/mile",5],["6:00/mile",6],["7:00/mile",7],["8:00/mile",8],["9:00/mile",9],["10:00/mile",10],["11:00/mile",11],["12:00/mile",12]]) %>
+      </div>
+
+      <div class="large-5 columns">
+        <% if current_user && current_user.routes.saved.any? %>
+              <%= label_tag :route %>
+              <%= select_tag :route, options_from_collection_for_select(current_user.routes.saved, 'id', 'name', 0) %>
+        <% end %>
+      </div>
+    </div>
 </fieldset>
+
+<fieldset>
+  <% if current_user %>
+    <legend><h3 class="subheader">3. Share</h3></legend>
+  <% else %>
+    <legend><h3 class="subheader">3. Sign Up to Share</h3></legend>
+  <% end %>
+  <div class='large-11 large-centered columns'>
+    <% if current_user %>
+      <%= f.submit 'Share Run!', class: 'button large expand' %>
+    <% else %>
+      <%= link_to "Sign Up!", new_user_path, class: "button large expand" %>
+    <% end %>
+    <%= hidden_field_tag :waypoints %>
+    <%= hidden_field_tag :distance %>
+  </p>
+</fieldset>
+
+<% end %>
