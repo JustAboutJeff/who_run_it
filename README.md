@@ -12,7 +12,11 @@ Created by:
 
 ##About
 
- ...
+Phase 3 Final Project for DevBootcamp (Chicago, IL)
+
+Original idea by Jeff Belser - With over 30 million runners in the US, the app was pitched as a new take on existing running club sites to promote social running activities. Original inspiration was to provide a method to notify and connect runners of similar abilities, paces and mileage preferences in their area. 
+
+Application uses both email and sms text messages to alert users of running events close to their chosen locations. Users are able to create multiple locations for alerts. Once notified, users are able to commit to particular runs and save favorite running routes for future use.
 
 
 ##Install
@@ -58,11 +62,35 @@ Please consult the production version of the app hosted on heroku for a live dem
 
 ##Design
 
- ...
+As a green field project, hand drawn wireframes drove the initial design. Once we achieved a simple MVP, features were added on the fly. Most of the design revolved around internal conversations - "The app should do this" or "We really need this here". As a consequence, most of the features did not make it the product backlog (pivotal tracker) and resulted in daily standups that didn't necessarily reflect what was happening in the project documentation.
+
+We went through several iterations within the database design, resulting in a dynamic schema.
+
+Styling was inspired by current running gear.  
+
+Pros:
+
+* Fluid, iterative approach to feature additions
+* Strong communication between team members
+
+Cons:
+
+* Untracked features left significant gaps in the product backlog (Twilio, ActionMailer, Leaflet Animation, etc..)
+* Iterative design made it difficult to define a "feature lock" point in the project.
 
 
 ##Testing
- ...
+
+Given the dynamic nature of the application - testing proved to be difficult. Without settling on a relatively static schema, initial unit testing remained incomplete until late in the project. Initial integration testing was developed for basic functions such as user login & signup, but also lagged behind as new features were added. The bright spot of the tests were the controller and routing tests that were completed mid-way thru the project.
+
+Lessons Learned:
+
+* You build it, you test it. We would have been better off holding code merges until testing was complete by the original developer.
+
+* Difficult tests exposed tightly coupled code, and highlighted refactoring opportunities.
+
+* Untested code exposed many last-minute fixes and patches.
+
 
 ===
 

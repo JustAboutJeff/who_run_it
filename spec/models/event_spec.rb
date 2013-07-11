@@ -36,10 +36,10 @@ describe Event do
 
   describe 'event#waypoint_coordinates' do
     it 'creates an array from a waypoint object' do
-      event = FactoryGirl.create(:event)
-      waypoint = FactoryGirl.create(:waypoint)
-
-      event.waypoints << waypoint
+      # waypoint = FactoryGirl.create(:waypoint)
+      route_with_waypoint = FactoryGirl.create(:route_with_waypoint)
+      event = FactoryGirl.create(:event, :route => route_with_waypoint)
+      # event.waypoints << waypoint
 
       expect(event.waypoint_coordinates).size.to equal(2)
     end

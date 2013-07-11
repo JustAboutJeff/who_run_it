@@ -13,7 +13,7 @@ WhoRunIt::Application.routes.draw do
 
   # Routes
   resources :routes
-  post "/routes/remove", to: "routes#remove"
+  get "/routes/:id/remove", to: "routes#remove", as: "remove_route"
 
   # Users
   resources :users

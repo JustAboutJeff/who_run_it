@@ -27,8 +27,8 @@ class LocationSettingsController < ApplicationController
   end
 
   def destroy
-    location_settings = LocationSetting.find(params[:id])
-    location_settings.destroy
+    location_setting = LocationSetting.find(params[:id])
+    location_setting.destroy
     redirect_to profile_path(current_user), alert: "Location deleted!"
   end
 

@@ -1,7 +1,7 @@
 <fieldset>
   <legend><h3 class="subheader"><%= @location_setting.name %></h3></legend>
-  <%= link_to "Edit", edit_location_setting_path(@location_setting), class: 'button' %>
-  <%= link_to 'Delete', @location_location, method: :delete, class: 'button', confirm: "Are you sure?" %>
+  <%= link_to "Edit", edit_location_setting_path(@location_setting), class: 'button small' %>
+  <%= link_to 'Delete', @location_location, method: :delete, class: 'button alert small', confirm: "Are you sure?" %>
   <table>
     <thead>
       <tr>
@@ -33,5 +33,5 @@
 
 <script type="text/javascript">
   var coords = <%= @coords %>;
-  var search_radius = <%= @location_setting.search_radius %>
+  var search_radius = <%= @location_setting.search_radius %>;
 </script>
