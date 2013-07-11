@@ -1,44 +1,22 @@
 <fieldset>
   <legend><h3 class="subheader"><%= @event.title %></h3></legend>
-  <div class="large-10 columns">
-    <% if @event.description != "" %>
-      <h4 class="subheader"><%= @event.description %></h4>
-    <% end %>
-  </div>
+  <div class="row">
+    <div class="large-10 columns">
+      <% if @event.description != "" %>
+        <h4 class="subheader"><%= @event.description %></h4>
+      <% end %>
+    </div>
 
-  <div class="large-2 columns">
-    <%= link_to "Delete", @event, method: :delete, class: 'button alert small', confirm: 'Are you sure?' %>
+    <div class="large-2 columns">
+      <%= link_to "Delete", @event, method: :delete, class: 'button alert small', confirm: 'Are you sure?' %>
+    </div>
   </div>
 
   <div class="row">
-    <div class="large-3 columns">
+    <div class="large-8 columns">
       <img class='circle icon-face inline-photo' src="http://www.gravatar.com/avatar/<%= @event.user.gravatar_hash %>?s=60&d=mm">
-    </div>
-    <div class="large-3 columns">
       <h5 class="subheader inline-header">Run with</h5>  <%= @event.user.username %>
     </div>
-    <div class="large-6 columns">
-        <div id="committed-runners">
-          <h5 class="subheader">Committed Runners</h5>
-          <% @event.users.each do |user| %>
-            <% if user.notifications.find_by_event_id(@event.id).committed == 1 %>
-              <img id="user-<%= user.id %>"class='circle icon-face' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=60&d=mm">
-            <% end %>
-          <% end %>
-        </div>
-
-       <div id="notified-runners">
-        <h5 class="subheader">Notified Runners</h5>
-        <% @event.users.each do |user| %>
-          <% if user.notifications.find_by_event_id(@event.id).committed == 0 %>
-            <img id="user-<%= user.id %>"class='circle icon-face' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=60&d=mm">
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
     <div class="large-4 columns">
       <% if current_user.notifications.find_by_event_id(@event.id) %>
         <form id="commit-toggle">
@@ -48,16 +26,16 @@
           <div class="switch">
             <% if current_user.notifications.find_by_event_id(@event.id).committed == 0 %>
               <input id="z" name="committed-switch" type="radio" checked>
-              <label for="z" onclick="">Commit to Run?</label>
+              <label for="z" onclick="">Run with <%= @event.user.username %>?</label>
 
               <input id="z1" name="committed-switch" type="radio" >
-              <label for="z1" onclick="">Committed</label>
+              <label for="z1" onclick="">RUNNING!</label>
             <% else %>
               <input id="z" name="committed-switch" type="radio" >
-              <label for="z" onclick="">Commit to Run?</label>
+              <label for="z" onclick="">Run with <%= @event.user.username %>?</label>
 
               <input id="z1" name="committed-switch" type="radio" checked>
-              <label for="z1" onclick="">Committed</label>
+              <label for="z1" onclick="">RUNNING!</label>
             <% end %>
             <span></span>
           </div>
@@ -66,6 +44,31 @@
     </div>
   </div>
 
+  <hr>
+
+  <div class="row">
+      <div class="large-6 columns" id="committed-runners">
+        <h5 class="subheader">Committed Runners</h5>
+        <% @event.users.each do |user| %>
+          <% if user.notifications.find_by_event_id(@event.id).committed == 1 %>
+            <img id="user-<%= user.id %>"class='circle icon-face' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=60&d=mm">
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="large-6 columns" id="notified-runners">
+        <h5 class="subheader">Notified Runners</h5>
+        <% @event.users.each do |user| %>
+          <% if user.notifications.find_by_event_id(@event.id).committed == 0 %>
+            <img id="user-<%= user.id %>"class='circle icon-face' src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=60&d=mm">
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
     <div class="large-12 columns">
       <table>
         <thead>
@@ -86,8 +89,9 @@
         </tbody>
       </table>
     </div>
+  </div>
 
-  <div id="map-show" class="dark"></div>
+  <div id="map-show"></div>
 
 </fieldset>
 
