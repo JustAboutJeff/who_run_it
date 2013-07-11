@@ -1,7 +1,13 @@
 <fieldset>
   <legend><h3 class="subheader"><%= @route.name %></h3></legend>
-  <h4 class="subheader"><%= @route.distance %> miles</h4>
-  <%= link_to "Delete", remove_route_path(@route), class: 'button alert small' %>
+  <div class="row">
+    <div class="large-10 columns">
+      <h4 class="subheader"><%= @route.distance %> miles</h4>
+    </div>
+    <div class="large-2 columns">
+      <%= link_to "Delete", remove_route_path(@route), class: 'button alert small' %>
+    </div>
+  </div>
   <div id="map-show"></div>
 </fieldset>
 
