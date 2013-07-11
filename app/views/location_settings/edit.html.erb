@@ -7,7 +7,7 @@
     <%= label_tag :notification_frequency %>
     <%= f.select :notification_frequency, [['Within 30 Minutes', 1], ['Within 1 Hour', 2], ['Within 2 Hours', 3]] %>
     <%= label_tag :notification_method %>
-    <%= f.select  :notification_method, [['None', 1],['Email',2],['Text Message',3],['Both',4]] %>
+    <%= f.select  :notification_method, [['None', 1],['Email',2],['Text Message',3],['Email & Text',4]] %>
     <%= label_tag :pace %>
     <%= f.select :pace_min, [['None', 0],['5:00',5],['6:00',6],['7:00',7],['8:00',8],['9:00',9],['10:00',10],['11:00',11],['12:00',12],['13:00',13],['14:00',14],['15:00',15]] %>
     <%= f.select :pace_max, [['None', 15],['5:00',5],['6:00',6],['7:00',7],['8:00',8],['9:00',9],['10:00',10],['11:00',11],['12:00',12],['13:00',13],['14:00',14],['15:00',15]] %>
