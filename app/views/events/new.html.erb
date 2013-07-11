@@ -26,7 +26,7 @@
       <% if current_user %>
         <%= f.submit 'Submit', class: 'button' %>
       <% else %>
-        <div><%= link_to "Signup For WHO RUN IT", users_path, class: "button alert" %></div>
+        <div><%= link_to "Signup For WHO RUN IT", new_user_path, class: "button alert" %></div>
       <% end %>
       <%= hidden_field_tag :waypoints %>
       <%= hidden_field_tag :distance %>
