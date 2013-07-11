@@ -5,7 +5,7 @@
     <%= label_tag :name %>
     <%= f.text_field :name, placeholder: 'Home', autofocus: true %>
     <%= label_tag :notification_method %>
-    <%= f.select :notification_method, options_for_select([['None', 1],['Email',2],['Text Message',3],['Both',4]]) %>
+    <%= f.select :notification_method, options_for_select([['None', 1],['Email',2],['Text Message',3],['Email & Text',4]]) %>
     <%= label_tag :pace %>
     <%= f.select :pace_min, options_for_select([['None', 0],["5:00/mile",5],["6:00/mile",6],["7:00/mile",7],["8:00/mile",8],["9:00/mile",9],["10:00/mile",10],["11:00/mile",11],["12:00/mile",12],["13:00/mile",13],["14:00/mile",14],["15:00/mile",15]]) %>
     <%= f.select :pace_max, options_for_select([['None', 99],["5:00/mile",5],["6:00/mile",6],["7:00/mile",7],["8:00/mile",8],["9:00/mile",9],["10:00/mile",10],["11:00/mile",11],["12:00/mile",12],["13:00/mile",13],["14:00/mile",14],["15:00/mile",15]]) %>
