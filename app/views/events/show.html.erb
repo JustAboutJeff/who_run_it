@@ -6,9 +6,11 @@
     <% end %>
   </div>
 
-  <div class="large-2 columns">
-    <%= link_to "Delete", @event, method: :delete, class: 'button alert small', confirm: 'Are you sure?' %>
-  </div>
+  <% if current_user.id == @event.user_id %>
+    <div class="large-2 columns">
+      <%= link_to "Delete", @event, method: :delete, class: 'button alert small', confirm: 'Are you sure?' %>
+    </div>
+  <% end %>
 
   <div class="row">
     <div class="large-3 columns">
