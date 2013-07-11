@@ -2,34 +2,31 @@
   <legend><h3 class="subheader"><%= @location_setting.name %></h3></legend>
   <%= link_to "Edit", edit_location_setting_path(@location_setting), class: 'button' %>
   <%= link_to 'Delete', @location_location, method: :delete, class: 'button', confirm: "Are you sure?" %>
-  <table class='show-location'>
-    <tr>
-      <td>Open Times:</td>
-      <td><%= @location_setting.notification_frequency %></td>
-    </tr>
-    <tr>
-      <td>Notification Method:</td>
-      <td><%= @location_setting.notification_method %></td>
-    </tr>
-    <tr>
-      <td>Pace:</td>
-      <td>Min: <%= @location_setting.pace_min %></td>
-      <td>Max: <%= @location_setting.pace_max %></td>
-    </tr>
-    <tr>
-      <td>Distance:</td>
-      <td>Min: <%= @location_setting.distance_min %></td>
-      <td>Max: <%= @location_setting.distance_max %></td>
-    </tr>
-    <tr>
-      <td>Address:</td>
-      <td><%= @location_setting.address %></td>
-    </tr>
-    <tr>
-      <td>Search Radius:</td>
-      <td><%= @location_setting.search_radius %> mi.</td>
-      <td></td>
-    </tr>
+  <table>
+    <thead>
+      <tr>
+        <th>Open Times</th>
+        <th>Notification Method</th>
+        <th>Pace Min.</th>
+        <th>Pace Max.</th>
+        <th>Distance Min.</th>
+        <th>Distance Max.</th>
+        <th>Address</th>
+        <th>Search Radius</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td><%= @location_setting.notification_frequency %></td>
+        <td><%= @location_setting.notification_method %></td>
+        <td>Min: <%= @location_setting.pace_min %></td>
+        <td>Max: <%= @location_setting.pace_max %></td>
+        <td>Min: <%= @location_setting.distance_min %></td>
+        <td>Max: <%= @location_setting.distance_max %></td>
+        <td><%= @location_setting.address %></td>
+        <td><%= @location_setting.search_radius %> mi.</td>
+      </tr>
+    </tbody>
   </table>
   <div id="map-location" class="dark"></div>
 </fieldset>
