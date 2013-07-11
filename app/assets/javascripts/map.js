@@ -1,3 +1,4 @@
+// Logic for map on View Event page
 var MapShow = {
   initialize: function(){
     if (this.mapExists()) {
@@ -54,6 +55,7 @@ var MapShow = {
   }
 };
 
+// Logic for map on Run Alert page
 var MapLocation = {
   initialize: function(){
     if (this.mapExists()) {
@@ -79,6 +81,7 @@ var MapLocation = {
   }
 };
 
+// Logic for map on Create Event page
 var MapCreate = {
   initialize: function(){
     if (this.mapExists()) {
