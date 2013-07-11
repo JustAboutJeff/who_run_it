@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
   validates_length_of     :password, minimum: 6, :if => :validate_password?
   validates_presence_of   :password, :if => :validate_password?
 
-  before_save :get_gravatar_hash
-  before_save :format_phone_number
+  before_validation :format_phone_number
+  before_save       :get_gravatar_hash
 
   def display_phone_number
     phone = self.cellphone
@@ -36,7 +36,11 @@ class User < ActiveRecord::Base
   def format_phone_number
     unless self.cellphone == ""
       digits = self.cellphone.gsub(/[^\d]/, '')
-      self.cellphone = "1" + digits[-10..-1]
+      if digits.length >= 10
+        self.cellphone = "1" + digits[-10..-1]
+      else
+        self.cellphone = digits
+      end
     end
   end
 
