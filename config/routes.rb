@@ -17,7 +17,7 @@ WhoRunIt::Application.routes.draw do
 
   # Users
   resources :users
-  get "/profile", to: 'users#show'
+  get "/profile/:id", to: 'users#show', as: "profile"
 
   # Notifications
   post "/commit", to: "notifications#commit"

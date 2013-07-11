@@ -38,9 +38,10 @@ class Event < ActiveRecord::Base
       end
     end
 
+    Notification.create(user_id: self.user_id, event_id: self.id, committed: 1)
+
     (users_for_email + users_for_sms).uniq.each do |user_id|
-      user_id == self.user_id ? committed_state = 1 : committed_state = 0
-      Notification.create(user_id: user_id, event_id: self.id, committed: committed_state)
+      Notification.create(user_id: user_id, event_id: self.id, committed: 0)
     end
 
     users_for_email.delete(self.user_id)
