@@ -12,12 +12,11 @@ Created by:
 
 ##About
 
-Phase 3 Final Project for DevBootcamp (Chicago, IL)
+A Final Group Project for Dev Bootcamp (Chicago, IL)
 
-Original idea by Jeff Belser - With over 30 million runners in the US, the app was pitched as a new take on existing running club sites to promote social running activities. Original inspiration was to provide a method to notify and connect runners of similar abilities, paces and mileage preferences in their area. 
+Original idea by Jeff Belser - a distance runner who moved to Chicago for Dev Bootcamp and struggled to find other runners to share a jog with outside the formalized running club schedules.
 
-Application uses both email and sms text messages to alert users of running events close to their chosen locations. Users are able to create multiple locations for alerts. Once notified, users are able to commit to particular runs and save favorite running routes for future use.
-
+With over 30 million runners in the US, the app was pitched as a tool to facilitate the social future of running. Who Run It allows runners to share their runs and join other runs that match their available time slots, pace and/or distance preference, and geographic location.
 
 ##Install
 
@@ -56,40 +55,43 @@ Application uses both email and sms text messages to alert users of running even
 
 ##Usage
 
+After the application is up and running you have the option to begin playing with the run creation form and drawing your own routes. Use the **sign up** or **sign in** links along the top navigation to sign into the app and begin saving and sharing your runs.
+
+From the user dashboard you can build new **run alerts**, view any of your previously **created runs**, view any previously created **routes**, and view any upcomming **notified runs** you've been alerted to.
+
 Please consult the production version of the app hosted on heroku for a live demonstration:
 
 <http://whorunit.herokuapp.com>
 
 ##Design
 
-As a green field project, hand drawn wireframes drove the initial design. Once we achieved a simple MVP, features were added on the fly. Most of the design revolved around internal conversations - "The app should do this" or "We really need this here". As a consequence, most of the features did not make it the product backlog (pivotal tracker) and resulted in daily standups that didn't necessarily reflect what was happening in the project documentation.
+As a green field project, hand drawn wireframes drove the initial design of the application. Once we achieved a simple MVP, features were added as time permitted and were outline as Pivotal Tracker user stories. Most of the design revolved around internal conversations - "The app should do this" or "We really need this here". As a consequence, each and every features did not make it into the product backlog and resulted in daily standups that didn't necessarily reflect what was happening in the project documentation. That said, our team was made up of hard-working, low-ego, collaboration focused personalities that helped us make great progress despite a less than perfect methodology. 
 
-We went through several iterations within the database design, resulting in a dynamic schema.
+For the front-end, we relied on the speed and flexibility of the Zurb Foundation framework and SASS to help build out a responsive interface. Our visual design decisions were guided by current workout and running gear trends.
 
-Styling was inspired by current running gear.  
-
-Pros:
-
-* Fluid, iterative approach to feature additions
-* Strong communication between team members
-
-Cons:
-
-* Untracked features left significant gaps in the product backlog (Twilio, ActionMailer, Leaflet Animation, etc..)
-* Iterative design made it difficult to define a "feature lock" point in the project.
+On the back-end, our initial schema proved to be too simple as we began to drill down into the model relationships behind mapping and notifying runs. We came to realize that we should be concerned with route objects, waypoint objects, location setting objects and a collection notification library classes. Seperating these concerns wasn't always executed perfectly but it helped us maintain a code base we could understand, refactor, and test.
 
 
 ##Testing
 
-Given the dynamic nature of the application - testing proved to be difficult. Without settling on a relatively static schema, initial unit testing remained incomplete until late in the project. Initial integration testing was developed for basic functions such as user login & signup, but also lagged behind as new features were added. The bright spot of the tests were the controller and routing tests that were completed mid-way thru the project.
+Testing was a guiding force for the application early on in the project, especially during the time leading up to delivering our MVP. However, given the dynamic nature of the workflow and tight deadline, testing proved to be difficult. Without settling on a relatively static schema, initial unit testing remained incomplete until late in the project. Initial integration testing was developed for basic functions such as user login & signup, but also lagged behind as new features were added. The bright spot of the tests were the controller and routing tests that were completed mid-way thru the project.
 
-Lessons Learned:
+**Lessons Learned:**
 
-* You build it, you test it. We would have been better off holding code merges until testing was complete by the original developer.
+- You build it, you test it. We would have been better off holding code merges until testing was complete by the contributing developer.
+- Difficult tests exposed tightly coupled code, and highlighted refactoring opportunities.
+- Untested code exposed many last-minute fixes and patches.
 
-* Difficult tests exposed tightly coupled code, and highlighted refactoring opportunities.
 
-* Untested code exposed many last-minute fixes and patches.
+##Final Thoughts
+
+Thanks to Dev Bootcamp for providing the structure and support to help make this project better. Abi Noda, Alex Koppel, Erik Allar, and Mitch Lee all provided insightful mentorship and feedback over the 7 days the application took to build. A few features we're excited to improve on in the future:
+
+- Add twitter OAuth login and tweet run notifications
+- Identify opportunities to optimize our postgres queries with eager loading
+- Implement a 'run search' feature for users
+- Utilize caching strategically to speed-up site performance
+- Fine tune the responsive media-query breakpoints
 
 
 ===
