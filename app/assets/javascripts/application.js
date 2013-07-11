@@ -36,3 +36,7 @@ $('input[name=committed-switch]').click(function() {
     }
   });
 });
+
+MapCreate.initialize();
+MapShow.initialize();
+MapLocation.initialize();
