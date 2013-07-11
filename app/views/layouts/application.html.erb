@@ -22,12 +22,14 @@
 
   <body>
     <%= render partial: 'layouts/navigation' %>
+    <% unless current_user %>
       <div class="row hero">
         <div class="large-12 large-centered">
           <h1>WHO RUN IT</h1>
           <h4 class="subheader">A distributed running club for the web</h4>
         </div>
       </div>
+    <% end %>
     <div class="row">
       <div class='large-12 columns large-centered'>
         <%= yield %>

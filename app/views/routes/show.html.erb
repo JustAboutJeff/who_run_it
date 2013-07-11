@@ -1,19 +1,8 @@
 <fieldset>
-  <table>
-    <tr>
-      <td>Name</td>
-      <td><%= @route.name %></td>
-    </tr>
-    <tr>
-      <td>Distance</td>
-      <td><%= @route.distance %> miles</td>
-    </tr>
-  </table>
-
-  <%= link_to "Delete", remove_route_path(@route), class: 'button alert tiny' %>
-  
+  <legend><h3 class="subheader"><%= @route.name %></h3></legend>
+  <h4 class="subheader"><%= @route.distance %> miles</h4>
+  <%= link_to "Delete", remove_route_path(@route), class: 'button alert small' %>
   <div id="map-show" class="dark"></div>
-  
 </fieldset>
 
 <script type="text/javascript">

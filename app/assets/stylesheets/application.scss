@@ -13,21 +13,56 @@
  *= require foundation_and_overrides
  */
 
- h3.profile-details {
+
+
+ table a {
+  color: #dff531;
+ }
+
+ table a:hover {
+  color: #c9db2b;
+ }
+
+
+
+div.equal-height-wrapper {
+  overflow:hidden;
+}
+
+ table {
+  background-color: #362D3E;
+ }
+
+ div.equal-height-column {
+  background-color: rgba(0,0,0,0.2);
+  margin-bottom: -200px;
+  padding-bottom: 200px;
+ }
+
+ ul.contact {
+  margin-left: 2em;
+  li > h5 {
+    margin: 0 0 0 0;
+  }
+ }
+ .inline-header {
   display: inline-block;
   margin-bottom: 0.25em;
  }
 
- span.profile-edit {
-  margin-left: 0.75em;
- }
+ div.inline-button {
+  display: inline-block;
+  position: relative;
+  margin-left: 1em;
+  top: -0.5em;
+}
 
 
  div.profile-details {
   display: inline-block;
  }
 
- div.profile-photo {
+ img.inline-photo {
   display: inline-block;
  }
 
