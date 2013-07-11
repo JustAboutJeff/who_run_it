@@ -1,7 +1,7 @@
 <% if type.errors.any? %>
   <div data-alert class="alert-box secondary">
     <p class="alert label"><%= pluralize(type.errors.count, "error") %> prohibited
-      this <%= type.class.name %> from being created:</p>
+      this <%= type.class.name %> from being saved:</p>
       <% type.errors.full_messages.each do |msg| %>
         <label class="error"><%= msg %></label>
       <% end %>
