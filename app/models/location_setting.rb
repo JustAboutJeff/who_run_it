@@ -9,7 +9,7 @@ class LocationSetting < ActiveRecord::Base
                         :pace_min, :pace_max, :distance_min, :distance_max,
                         :search_radius, :address
   validates_uniqueness_of   :name, :scope => :user_id
-  validates_numericality_of :search_radius, greater_than: 0, less_than: 10
+  validates_numericality_of :search_radius, greater_than: 0, less_than_or_equal_to: 10
   validates_numericality_of :pace_max, :greater_than_or_equal_to => :pace_min, 
                             :message => "must be greater than or equal to pace min"
   validates_numericality_of :distance_max, :greater_than_or_equal_to => :distance_min, 
