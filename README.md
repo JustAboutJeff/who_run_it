@@ -12,11 +12,11 @@ Created by:
 
 ##About
 
-A Final Group Project for Dev Bootcamp (Chicago, IL)
+A final group project for Dev Bootcamp (Chicago, IL)
 
-Original idea by Jeff Belser - a distance runner who moved to Chicago for Dev Bootcamp and struggled to find other runners to share a jog with outside the formalized running club schedules.
+The original idea was pitched by Jeff Belser - a distance runner who moved to Chicago for Dev Bootcamp and struggled to find other runners to share a jog with outside of the formalized running club schedules.
 
-With over 30 million runners in the US, the app was pitched as a tool to facilitate the social future of running. Who Run It allows runners to share their runs and join other runs that match their available time slots, pace and/or distance preference, and geographic location.
+Who Run It allows runners to build and share their runs and join other runs that match their available time slots, pace and/or distance preferences, and geographic location.
 
 ##Install
 
@@ -55,26 +55,29 @@ With over 30 million runners in the US, the app was pitched as a tool to facilit
 
 ##Usage
 
-After the application is up and running you have the option to begin playing with the run creation form and drawing your own routes. Use the **sign up** or **sign in** links along the top navigation to sign into the app and begin saving and sharing your runs.
+After the application is up and running you have the ability to begin playing with the run creation form and drawing your own routes. Click the **polyline tool** at the upper left corner of the map to begin drawing routes. Use the **sign up** or **sign in** links along the top navigation bar to logn into the app and begin saving and sharing your own runs.
 
-From the user dashboard you can build new **run alerts**, view any of your previously **created runs**, view any previously created **routes**, and view any upcomming **notified runs** you've been alerted to.
+Once logged in, you'll be directed to the user dashboard. The dashboard allos you to build new **run alerts**, view any of your previously **created runs**, view any previously created **routes**, and view any upcomming **notified runs** that you've been alerted to.
 
-Please consult the production version of the app hosted on heroku for a live demonstration:
+Please consult the production version of the application hosted on heroku for a live demonstration:
 
 <http://whorunit.herokuapp.com>
 
 ##Design
 
-As a green field project, hand drawn wireframes drove the initial design of the application. Once we achieved a simple MVP, features were added as time permitted and were outline as Pivotal Tracker user stories. Most of the design revolved around internal conversations - "The app should do this" or "We really need this here". As a consequence, each and every features did not make it into the product backlog and resulted in daily standups that didn't necessarily reflect what was happening in the project documentation. That said, our team was made up of hard-working, low-ego, collaboration focused personalities that helped us make great progress despite a less than perfect methodology. 
+As a green field project, hand drawn wireframes helped drive the initial design of our application. Once we achieved a simple MVP, features were outlined as Pivotal Tracker user stories and added as time permitted. Most of the design revolved around internal conversations - "The app should do this" or "We really need this here". As a consequence, each and every feature did not make it into the product backlog and resulted in daily standups that didn't necessarily reflect what was happening in the project documentation. That said, our team was made up of hard-working, low-ego, collaboration focused personalities that helped us make great progress despite a less than perfect methodology. 
 
 For the front-end, we relied on the speed and flexibility of the Zurb Foundation framework and SASS to help build out a responsive interface. Our visual design decisions were guided by current workout and running gear trends.
 
-On the back-end, our initial schema proved to be too simple as we began to drill down into the model relationships behind mapping and notifying runs. We came to realize that we should be concerned with route objects, waypoint objects, location setting objects and a collection notification library classes. Seperating these concerns wasn't always executed perfectly but it helped us maintain a code base we could understand, refactor, and test.
+On the back-end, our initial schema proved to be too simple as we began to drill down into the model relationships behind mapping and notifying runs. We came to the realization that we should be concerned with route objects, waypoint objects, location setting objects and a collection of notification helper classes. Seperating these concerns wasn't always executed perfectly but it helped us maintain a code base that we could better understand, refactor, and test.
+
+- View our LocationSetting class [here](https://github.com/JustAboutJeff/who_run_it/blob/master/app/models/location_setting.rb)
+- View our Notification worker class [here](https://github.com/JustAboutJeff/who_run_it/blob/master/app/workers/notification_worker.rb)
 
 
 ##Testing
 
-Testing was a guiding force for the application early on in the project, especially during the time leading up to delivering our MVP. However, given the dynamic nature of the workflow and tight deadline, testing proved to be difficult. Without settling on a relatively static schema, initial unit testing remained incomplete until late in the project. Initial integration testing was developed for basic functions such as user login & signup, but also lagged behind as new features were added. The bright spot of the tests were the controller and routing tests that were completed mid-way thru the project.
+Testing was a guiding force for the application early on in the project lifecycle, especially during the time leading up to delivering our MVP. However, given the dynamic nature of the workflow and tight deadline, testing proved to be difficult moving forward. Without settling on a relatively static schema, initial unit testing remained incomplete until late in the project. Initial integration testing was developed for basic functions such as user login & signup, but also lagged behind as new features were added. The bright spot of the tests were the controller and routing tests that were completed mid-way thru the project.
 
 **Lessons Learned:**
 
