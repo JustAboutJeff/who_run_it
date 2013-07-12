@@ -55,9 +55,9 @@ Who Run It allows runners to build and share their runs and join other runs that
 
 ##Usage
 
-After the application is up and running you have the ability to begin playing with the run creation form and drawing your own routes. Click the **polyline tool** at the upper left corner of the map to begin drawing routes. Use the **sign up** or **sign in** links along the top navigation bar to logn into the app and begin saving and sharing your own runs.
+After the application is up and running you have the ability to begin playing with the run creation form and drawing your own routes. Click the **polyline tool** at the upper left corner of the map to begin drawing routes. Use the **sign up** or **sign in** links along the top navigation bar to login and begin saving and sharing your own runs.
 
-Once logged in, you'll be directed to the user dashboard. The dashboard allos you to build new **run alerts**, view any of your previously **created runs**, view any previously created **routes**, and view any upcomming **notified runs** that you've been alerted to.
+Once logged in, you'll be directed to the user dashboard. The dashboard allows you to build new **run alerts**, view any of your previously **created runs**, view any of your previously created **routes**, and view any upcomming **notified runs** that you've been alerted to.
 
 Please consult the production version of the application hosted on heroku for a live demonstration:
 
