@@ -28,7 +28,7 @@
 
       <div class="large-5 columns">
         <% if current_user && current_user.routes.saved.any? %>
-              <%= label_tag :route %>
+              <%= label_tag "Route (used if map is blank)" %>
               <%= select_tag :route, options_from_collection_for_select(current_user.routes.saved, 'id', 'name', 0) %>
         <% end %>
       </div>
