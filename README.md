@@ -2,7 +2,7 @@
 
 > WHO RUN IT - a distributed running club for the web.
 
-<http://whorunit.herokuapp.com>
+<http://www.whorun.it>
 
 Created by:
 
@@ -61,7 +61,7 @@ Once logged in, you'll be directed to the user dashboard. The dashboard allows y
 
 Please consult the production version of the application hosted on heroku for a live demonstration:
 
-<http://whorunit.herokuapp.com>
+<http://www.whorun.it>
 
 ##Design
 
