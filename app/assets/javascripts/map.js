@@ -164,7 +164,7 @@ var MapCreate = {
   },
   updateDistance: function(e){
     this.totalDistance = 0;
-    for (i = 0; i < (waypoints.length - 1); i++) {
+    for (i = 0; i < (this.waypoints.length - 1); i++) {
       this.totalDistance += e.layer._latlngs[i].distanceTo(e.layer._latlngs[i+1]);
     }
   },
