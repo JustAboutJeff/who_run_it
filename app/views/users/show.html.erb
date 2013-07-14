@@ -76,7 +76,7 @@
 
   <div class="row equal-height-wrapper">
     <div class="large-6 columns equal-height-column">
-      <% if @location_settings %>
+      <% if @location_settings.any? %>
         <h4 class="subheader">My Run Alerts</h4>
         <%= link_to "Add Run Alert", new_location_setting_path, class: "button small" %>
         <table>
