@@ -1,10 +1,14 @@
 <fieldset>
+	<%= render 'layouts/feedback' %>
   <legend><h3 class="subheader">Sign In</h3></legend>
 	<%= form_for :session do |f| %>
     <%= label_tag :username %>
 	  <%= f.text_field :username, placeholder: 'Jane', autofocus: true  %>
     <%= label_tag :password %>
 	  <%= f.password_field :password, placeholder: 'Password' %>
+    <% if params[:event_url] %>
+	    <%= hidden_field_tag 'event_url', params[:event_url] %>
+    <% end %>
 	  <%= f.submit 'Submit', class: 'button' %>
 	<% end %>
 </fieldset>
