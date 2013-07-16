@@ -29,6 +29,10 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by_url_key(params[:id])
     redirect_to root_url, alert: "Event not found." unless @event
+    
+    unless current_user
+      redirect_to login_path(event_url: @event), notice: "Sign in to view run"
+    end
   end
 
   def destroy
